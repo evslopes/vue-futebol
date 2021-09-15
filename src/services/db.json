@@ -1,0 +1,94 @@
+{
+  "times": [
+    {
+      "id": "1",
+      "nome": "Flamento",
+      "estado": "RJ",
+      "tecnico": "Renato Gaucho",
+      "torcida": "100000000000000000000000000",
+      "fundacao_ano": "1900"
+    },
+    {
+      "id": "2",
+      "nome": "Fluminense",
+      "estado": "RJ",
+      "tecnico": "Renato Gaucho",
+      "torcida": "100000000000000000000000000",
+      "fundacao_ano": "1900"
+    }
+  ],
+  "jogadores": [
+    {
+      "id": "1",
+      "nome": "Pele",
+      "camisa": "10",
+      "salario": "20000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    },
+    {
+      "id": "2",
+      "nome": "Garrincha",
+      "camisa": "11",
+      "salario": "500000000",
+      "posicao": "Meio de Campo",
+      "timeId": 1
+    },
+    {
+      "id": "3",
+      "nome": "Zico",
+      "camisa": "9",
+      "salario": "500000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    },
+    {
+      "id": "4",
+      "nome": "Pele",
+      "camisa": "10",
+      "salario": "20000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    },
+    {
+      "id": "5",
+      "nome": "Garrincha",
+      "camisa": "11",
+      "salario": "500000000",
+      "posicao": "Meio de Campo",
+      "timeId": 1
+    },
+    {
+      "id": "6",
+      "nome": "Zico",
+      "camisa": "9",
+      "salario": "500000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    },
+    {
+      "id": "7",
+      "nome": "Pele",
+      "camisa": "10",
+      "salario": "20000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    },
+    {
+      "id": "8",
+      "nome": "Garrincha",
+      "camisa": "11",
+      "salario": "500000000",
+      "posicao": "Meio de Campo",
+      "timeId": 1
+    },
+    {
+      "id": "9",
+      "nome": "Zico",
+      "camisa": "9",
+      "salario": "500000000",
+      "posicao": "Atacante",
+      "timeId": 1
+    }
+  ]
+}
