@@ -21,6 +21,7 @@ import Campo from "../components/Campo";
 import CampoDropDown from "../components/CampoDropDown";
 import axios from "axios";
 import {POSICAO} from "../Const";
+import API from "@/services/API";
 
 let jogadorNovo = () => {
   return {
@@ -47,7 +48,7 @@ export default {
   methods: {
     salvar() {
       axios
-          .post('http://localhost:3000/jogadores', {data: [this.jogador]})
+          .post(API, {data: [this.jogador]})
           .then(() => {
             this.jogadores.push(this.time);
             this.jogador = jogadorNovo();
@@ -61,7 +62,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`$http://localhost:3000/jogadores/${jogador.id}`)
+          .delete(`${API}/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;
@@ -69,7 +70,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/jogadores').then(({data}) => {
+    axios.get(API).then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
     });

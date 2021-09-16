@@ -27,8 +27,7 @@
           <td>{{ jogador.timeId }}</td>
           <td>
             <button class="btn btn-warning fs-6 px-1 mt-1" @click="editar(jogador)"><span >Editar</span></button>
-            <span v-if="carregando">carregando...</span>
-            <button class="btn btn-danger fs-6 px-1 mt-1" v-else @click="apagar(jogador, index)">
+            <button class="btn btn-danger fs-6 px-1 mt-1" @click="apagar(jogador, index)">
               <span>Apagar</span></button>
           </td>
         </tr>
@@ -42,6 +41,7 @@
 
 <script>
 import axios from "axios";
+import {POSICAO} from "@/Const";
 
 let jogadorNovo = (time_id,max) => {
   let max_id = max || 0
@@ -61,19 +61,7 @@ export default {
       jogadores: [],
       carregando: true,
       editando: false,
-      posicao: [
-        "ATACANTE",
-        "GOLEIRO",
-        "LATERAL DIREITO",
-        "LATERAL ESQUERDO",
-        "MEIA ARMADOR",
-        "PONTA DIREITA",
-        "PONTA ESQUERDA",
-        "QUARTO ZAGUEIRO",
-        "SEGUNDO VOLANTE",
-        "VOLANTE",
-        "ZAGUEIRO CENTRAL"
-      ],
+      posicao: POSICAO,
     };
   },
   methods: {

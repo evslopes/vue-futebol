@@ -19,7 +19,7 @@
         <th scope="col">Informações</th>
         </thead>
         <tbody>
-        <tr v-for="(time, index) in times">
+        <tr v-bind:key="time.id" v-for="(time, index) in times">
           <td>{{ time.nome }}</td>
           <td>{{ time.estado }}</td>
           <td>{{ time.tecnico }}</td>
@@ -28,8 +28,7 @@
           <td>{{ time.info }}</td>
           <td>
             <button class="btn btn-warning fs-8 px-1 mt-1" @click="editar(time)">Editar</button>
-            <span v-if="carregando">carregando...</span>
-            <button class="btn btn-danger fs-8 px-1 mt-1" v-else @click="apagar(time, index)">Apagar</button>
+            <button class="btn btn-danger fs-8 px-1 mt-1" @click="apagar(time, index)">Apagar</button>
           </td>
         </tr>
         </tbody>

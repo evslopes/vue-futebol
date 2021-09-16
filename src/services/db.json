@@ -1,6 +1,7 @@
 {
   "times": [
     {
+      "id": "1",
       "nome": "Flamengo",
       "estado": "RJ",
       "tecnico": "Renato Gaucho",
@@ -9,6 +10,7 @@
       "info": "O Clube de Regatas do Flamengo"
     },
     {
+      "id": "2",
       "nome": "Fluminense",
       "estado": "RJ",
       "tecnico": "Não sei",
@@ -17,6 +19,7 @@
       "info": "Time 2"
     },
     {
+      "id": "3",
       "nome": "Vasc0",
       "estado": "RJ",
       "tecnico": "Não sei",
@@ -25,6 +28,7 @@
       "info": "Time 3"
     },
     {
+      "id": "4",
       "nome": "Botafogo",
       "estado": "RJ",
       "tecnico": "Não sei",
@@ -33,7 +37,16 @@
       "info": "Time 4"
     },
     {
-      "id": 1,
+      "id": 5,
+      "nome": "",
+      "estado": "",
+      "tecnico": "",
+      "torcida": "",
+      "fundacao_ano": "",
+      "info": ""
+    },
+    {
+      "id": 6,
       "nome": "",
       "estado": "",
       "tecnico": "",
@@ -44,7 +57,7 @@
   ],
   "jogadores": [
     {
-      "id": "1",
+      "id": 1,
       "nome": "Pele",
       "camisa": "10",
       "salario": "20000000",
@@ -52,7 +65,7 @@
       "timeId": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "nome": "Garrincha",
       "camisa": "11",
       "salario": "500000000",
@@ -60,7 +73,7 @@
       "timeId": 1
     },
     {
-      "id": "3",
+      "id": 3,
       "nome": "Zico",
       "camisa": "9",
       "salario": "500000000",
@@ -68,7 +81,7 @@
       "timeId": 1
     },
     {
-      "id": "4",
+      "id": 4,
       "nome": "Pele",
       "camisa": "10",
       "salario": "20000000",
@@ -76,7 +89,7 @@
       "timeId": 1
     },
     {
-      "id": "5",
+      "id": 5,
       "nome": "Garrincha",
       "camisa": "11",
       "salario": "500000000",
@@ -84,7 +97,7 @@
       "timeId": 1
     },
     {
-      "id": "6",
+      "id": 6,
       "nome": "Zico",
       "camisa": "9",
       "salario": "500000000",
@@ -92,7 +105,7 @@
       "timeId": 1
     },
     {
-      "id": "7",
+      "id": 7,
       "nome": "Pele",
       "camisa": "10",
       "salario": "20000000",

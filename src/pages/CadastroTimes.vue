@@ -18,8 +18,7 @@
       ></CampoText>
     </div>
     <div>
-      <span v-if="carregando">carregando...</span>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
+      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
         <router-link to="/times">Salvar</router-link>
       </button>
     </div>
