@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>Cadastrar Time</h3>
-    <div id="content">
+    <h1 class="fs-1 px-2 mt-5">Cadastro de Times</h1>
+    <div>
       <Campo nome="Nome" v-model="time.nome"></Campo>
       <CampoDropDown
           nome="Estado"
@@ -19,7 +19,9 @@
     </div>
     <div>
       <span v-if="carregando">carregando...</span>
-      <button v-else @click="salvar"><router-link to="/times">Salvar</router-link></button>
+      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
+        <router-link to="/times">Salvar</router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -30,9 +32,10 @@ import CampoText from "../components/CampoText";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 
-let timeNovo = () => {
+let timeNovo = (max) => {
+  let max_id = max || 0
   return {
-    id: "INCREMENT",
+    id: max_id + 1,
     nome: "",
     estado: "",
     tecnico: "",
@@ -42,7 +45,7 @@ let timeNovo = () => {
   };
 };
 export default {
-  components: { Campo, CampoDropDown, CampoText },
+  components: {Campo, CampoDropDown, CampoText},
   data() {
     return {
       time: timeNovo(),
@@ -50,12 +53,12 @@ export default {
       carregando: true,
       editando: false,
       estados: [
-        "AC", "AL",  "AP", "AM",
+        "AC", "AL", "AP", "AM",
         "BA", "CE", "DF", "ES", "GO",
-        "MA",  "MT", "MS", "MG",
-        "PA", "PB",  "PR", "PE", "PI",
+        "MA", "MT", "MS", "MG",
+        "PA", "PB", "PR", "PE", "PI",
         "RJ", "RN", "RS", "RO", "RR",
-        "SC", "SE",  "SP",
+        "SC", "SE", "SP",
         "TO",
       ],
     };
@@ -63,10 +66,11 @@ export default {
   methods: {
     salvar() {
       axios
-          .post("https://sheetdb.io/api/v1/7j443ehnc0qn8", { data: [this.time] })
+          .post("http://localhost:3000/times", {...this.time})
           .then(() => {
             this.times.push(this.time);
-            this.time = timeNovo();
+            this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
+            this.editando = false
             this.carregando = false;
           });
     },
@@ -77,7 +81,7 @@ export default {
     apagar(time, index) {
       this.carregando = true;
       axios
-          .delete(`https://sheetdb.io/api/v1/7j443ehnc0qn8/id/${time.id}`)
+          .delete(`http://localhost:3000/times/id/${time.id}`)
           .then(() => {
             this.times.splice(index, 1);
             this.carregando = false;
@@ -85,9 +89,10 @@ export default {
     },
   },
   mounted() {
-    axios.get("https://sheetdb.io/api/v1/7j443ehnc0qn8").then(({ data }) => {
+    axios.get("http://localhost:3000/times").then(({data}) => {
       this.times = data;
       this.carregando = false;
+      this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
     });
   },
 };

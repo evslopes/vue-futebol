@@ -1,5 +1,5 @@
 <template>
-  <div class="conteiner">
+  <div class="container">
     <h1 class="fs-1 px-2 mt-5">Cadastro de Jogadores</h1>
 
     <div>
@@ -22,15 +22,14 @@ import Campo from "../components/Campo.vue";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 
-let jogadorNovo = () => {
+let jogadorNovo = (time_id,max) => {
+  let max_id = max || 0
   return {
-    id: "INCREMENT",
-    nome: "",
-    estado: "",
-    tecnico: "",
-    torcida: "",
-    fundacao_ano: "",
-    info: "",
+    'id': max_id + 1,
+    'nome': "",
+    'salario': "",
+    'posicao': "",
+    'time_id': time_id
   };
 };
 export default {
@@ -56,13 +55,18 @@ export default {
       ],
     };
   },
+  computed: {
+    time_filtrado(){
+      return this.jogadores.filter(j => j.time.id === this.route.params.time_id)
+    }
+  },
   methods: {
     salvar() {
       axios
-          .post('http://localhost:3000/jogadores', {data: [this.jogador]})
+          .post('http://localhost:3000/jogadores', {...this.jogador})
           .then(() => {
             this.jogadores.push(this.jogador);
-            this.jogador = jogadorNovo();
+            this.jogador = jogadorNovo(this.$route.params.time_id, Math.max(this.jogadores.map(j => j.id)));
             this.carregando = false;
           });
     },
@@ -82,6 +86,7 @@ export default {
   },
   mounted() {
     axios.get('http://localhost:3000/jogadores').then(({data}) => {
+      this.jogador = jogadorNovo(this.$route.params.time_id, Math.max(this.jogadores.map(j => j.id)));
       this.jogadores = data;
       this.carregando = false;
     });

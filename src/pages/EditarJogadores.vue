@@ -1,12 +1,12 @@
 <template>
-  <div >
+  <div>
     <h4 style="align-self: normal;">- Editar -</h4>
     <Campo nome="Nome" v-model="jogador.nome"></Campo>
     <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
     <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
     <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
   </div>
-  <div >
+  <div>
     <span v-if="carregando">carregando...</span>
   </div>
 </template>
@@ -20,11 +20,9 @@ let jogadorNovo = () => {
   return {
     id: "",
     nome: "",
-    estado: "",
-    tecnico: "",
-    torcida: "",
-    fundacao_ano: "",
-    info: "",
+    salario: "",
+    posicao: "",
+    time_id: ""
   };
 };
 

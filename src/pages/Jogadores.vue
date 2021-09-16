@@ -19,16 +19,16 @@
         <th scope="col">Editar ou Apagar</th>
         </thead>
         <tbody>
-        <tr v-for="(jogador, index) in jogadores">
+        <tr v-bind:key="jogador.id" v-for="(jogador, index) in jogadores">
           <td scope="row">{{ jogador.nome }}</td>
           <td>{{ jogador.camisa }}</td>
           <td>{{ jogador.salario }}</td>
           <td>{{ jogador.posicao }}</td>
           <td>{{ jogador.timeId }}</td>
           <td>
-            <button class="btn btn-warning" @click="editar(jogador)"><span >Editar</span></button>
+            <button class="btn btn-warning fs-6 px-1 mt-1" @click="editar(jogador)"><span >Editar</span></button>
             <span v-if="carregando">carregando...</span>
-            <button class="btn btn-danger" v-else @click="apagar(jogador, index)">
+            <button class="btn btn-danger fs-6 px-1 mt-1" v-else @click="apagar(jogador, index)">
               <span>Apagar</span></button>
           </td>
         </tr>
@@ -41,23 +41,20 @@
 
 
 <script>
-import Campo from "../components/Campo.vue";
-import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 
-let jogadorNovo = () => {
+let jogadorNovo = (time_id,max) => {
+  let max_id = max || 0
   return {
-    id: "",
-    nome: "",
-    estado: "",
-    tecnico: "",
-    torcida: "",
-    fundacao_ano: "",
-    info: "",
+    'id': max_id + 1,
+    'nome': "",
+    'salario': "",
+    'posicao': "",
+    'time_id': time_id
   };
 };
 export default {
-  components: {Campo, CampoDropDown},
+
   data() {
     return {
       jogador: jogadorNovo(),
@@ -82,7 +79,7 @@ export default {
   methods: {
     salvar() {
       axios
-          .post('http://localhost:3000/jogadores', {data: [this.jogador]})
+          .post('http://localhost:3000/jogadores', {...this.jogador})
           .then(() => {
             this.jogadores.push(this.time);
             this.jogador = jogadorNovo();
