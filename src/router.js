@@ -5,6 +5,8 @@ import Times from "./pages/Times";
 import Jogadores from "./pages/Jogadores";
 import CadastroJogadores from "./pages/CadastroJogadores";
 import CadastroTimes from "./pages/CadastroTimes";
+import EditarTimes from "@/pages/EditarTimes";
+import EditarJogadores from "@/pages/EditarJogadores";
 
 Vue.use(VueRouter);
 
@@ -28,6 +30,11 @@ export default new VueRouter({
             component: CadastroTimes
         },
         {
+            path: '/editartimes',
+            name: 'editartimes',
+            component: EditarTimes
+        },
+        {
             path: '/jogadores',
             name: 'jogadores',
             component: Jogadores
@@ -36,6 +43,11 @@ export default new VueRouter({
             path: '/cadastrojogadores',
             name: 'cadastrojogadores',
             component: CadastroJogadores
+        },
+        {
+            path: '/editarjogadores',
+            name: 'editarjogadores',
+            component: EditarJogadores
         }
     ]
 });

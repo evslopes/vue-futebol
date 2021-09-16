@@ -1,13 +1,18 @@
 <template>
   <div>
-    <h4 style="align-self: normal;">- Editar -</h4>
-    <Campo nome="Nome" v-model="jogador.nome"></Campo>
-    <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
-    <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
-    <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
-  </div>
-  <div>
-    <span v-if="carregando">carregando...</span>
+    <h1 class="fs-1 px-2 mt-5">Editar de Jogadores</h1>
+    <div>
+      <Campo nome="Nome" v-model="jogador.nome"></Campo>
+      <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
+      <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
+      <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
+    </div>
+    <div>
+      <span v-if="carregando">carregando...</span>
+      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
+        <router-link to="/jogadores">Salvar</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
