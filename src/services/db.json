@@ -1,50 +1,45 @@
 {
   "times": [
     {
-      "id": "1",
       "nome": "Flamengo",
       "estado": "RJ",
       "tecnico": "Renato Gaucho",
-      "torcida": "100000000000000000000000000",
-      "fundacao_ano": "1900",
-      "info": "O maior do Brasil"
+      "torcida": "25700000",
+      "fundacao_ano": "1895",
+      "info": "O Clube de Regatas do Flamengo"
     },
     {
-      "id": "2",
       "nome": "Fluminense",
       "estado": "RJ",
-      "tecnico": "Renato Gaucho",
-      "torcida": "100000000000000000000000000",
+      "tecnico": "Não sei",
+      "torcida": "1000000",
       "fundacao_ano": "1900",
-      "info": "O maior do Brasil"
+      "info": "Time 2"
     },
     {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "a15TJel"
+      "nome": "Vasc0",
+      "estado": "RJ",
+      "tecnico": "Não sei",
+      "torcida": "10000",
+      "fundacao_ano": "1900",
+      "info": "Time 3"
     },
     {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "v5B3zN7"
+      "nome": "Botafogo",
+      "estado": "RJ",
+      "tecnico": "Não sei",
+      "torcida": "10000",
+      "fundacao_ano": "1900",
+      "info": "Time 4"
+    },
+    {
+      "id": 1,
+      "nome": "",
+      "estado": "",
+      "tecnico": "",
+      "torcida": "",
+      "fundacao_ano": "",
+      "info": ""
     }
   ],
   "jogadores": [
