@@ -1,30 +1,24 @@
 <template>
-  <div class="conteiner">
-    <h1 class="fs-1 px-2 mt-5">Cadastro de Jogadores</h1>
-
-    <div>
-      <Campo nome="Nome" v-model="jogador.nome"></Campo>
-      <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
-      <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
-      <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
-    </div>
-    <div>
-      <span v-if="carregando">carregando...</span>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
-        <router-link to="/jogadores">Salvar</router-link>
-      </button>
-    </div>
+  <div >
+    <h4 style="align-self: normal;">- Editar -</h4>
+    <Campo nome="Nome" v-model="jogador.nome"></Campo>
+    <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
+    <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
+    <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
+  </div>
+  <div >
+    <span v-if="carregando">carregando...</span>
   </div>
 </template>
 
 <script>
-import Campo from "../components/Campo.vue";
-import CampoDropDown from "../components/CampoDropDown.vue";
+import Campo from "../components/Campo";
+import CampoDropDown from "../components/CampoDropDown";
 import axios from "axios";
 
 let jogadorNovo = () => {
   return {
-    id: "INCREMENT",
+    id: "",
     nome: "",
     estado: "",
     tecnico: "",
@@ -33,7 +27,9 @@ let jogadorNovo = () => {
     info: "",
   };
 };
+
 export default {
+  name: "EditarJogadores",
   components: {Campo, CampoDropDown},
   data() {
     return {
@@ -61,7 +57,7 @@ export default {
       axios
           .post('http://localhost:3000/jogadores', {data: [this.jogador]})
           .then(() => {
-            this.jogadores.push(this.jogador);
+            this.jogadores.push(this.time);
             this.jogador = jogadorNovo();
             this.carregando = false;
           });
@@ -73,7 +69,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/jogadores/id/${jogador.id}`)
+          .delete(`$http://localhost:3000/jogadores/id/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;
@@ -86,7 +82,7 @@ export default {
       this.carregando = false;
     });
   },
-};
+}
 </script>
 
 <style scoped>

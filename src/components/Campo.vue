@@ -1,8 +1,8 @@
 <template>
   <div class="col-12">
-    <label :for="nome" class="form-label" >{{ nome }}</label>
-    <input :type="tipo"
-           class="form-control"
+    <label  :for="nome" class="form-label mx-auto" >{{ nome }}</label>
+    <input  :type="tipo"
+           class="form-control mx-auto"
            :id="nome"
            :placeholder="nome"
            :value="modelValue"
@@ -26,7 +26,7 @@ export default {
 <style scoped>
 
 .colorido {
-  background-color: #0dcaf0;
+
 }
 
 </style>

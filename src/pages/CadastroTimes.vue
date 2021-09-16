@@ -1,36 +1,6 @@
 <template>
   <div>
     <h3>Cadastrar Time</h3>
-
-    <!-- <table>
-      <thead>
-        <th>Nome</th>
-        <th>Estado</th>
-        <th>Técnico</th>
-        <th>Torcida</th>
-        <th>Ano</th>
-        <th>Info</th>
-      </thead>
-      <tbody>
-        <tr v-for="(time, index) in times">
-          <td>{{ time.nome }}</td>
-          <td>{{ time.estado }}</td>
-          <td>{{ time.tecnico }}</td>
-          <td>{{ time.torcida }}</td>
-          <td>{{ time.fundacao_ano }}</td>
-          <td>{{ time.info }}</td>
-          <td>
-            <button @click="editar(time)">Editar</button>
-          </td>
-          <td>
-            <span v-if="carregando">carregando...</span>
-            <button v-else @click="apagar(time, index)">Apagar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table> -->
-
-
     <div id="content">
       <Campo nome="Nome" v-model="time.nome"></Campo>
       <CampoDropDown

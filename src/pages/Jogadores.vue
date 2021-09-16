@@ -1,49 +1,41 @@
 <template>
   <div>
-    <h3>Jogadores</h3>
-    <div id="content">
-      <table class="table">
+    <h1 class="fs-1 px-2 mt-5">Tabela de Jogadores Cadastrados</h1>
+
+    <div >
+      <router-link to="/cadastrojogadores">
+        <button class="btn btn-primary fs-8 px-1 mt-1">Novo Jogador</button>
+      </router-link>
+    </div>
+
+    <div>
+      <table class="table px-2 mt-5">
         <thead>
         <th scope="col">Nome</th>
         <th scope="col">Camisa</th>
         <th scope="col">Salário</th>
         <th scope="col">Posição</th>
         <th scope="col">Time</th>
+        <th scope="col">Editar ou Apagar</th>
         </thead>
         <tbody>
-        <tr :v-for="(jogador, index) in jogadores">
+        <tr v-for="(jogador, index) in jogadores">
           <td scope="row">{{ jogador.nome }}</td>
           <td>{{ jogador.camisa }}</td>
           <td>{{ jogador.salario }}</td>
           <td>{{ jogador.posicao }}</td>
           <td>{{ jogador.timeId }}</td>
           <td>
-            <button class="border-none" @click="editar(jogador)"><span class="material-icons">edit</span></button>
+            <button class="btn btn-warning" @click="editar(jogador)"><span >Editar</span></button>
             <span v-if="carregando">carregando...</span>
-            <button class="border-none" v-else @click="apagar(jogador, index)"><span
-                class="material-icons">delete</span></button>
+            <button class="btn btn-danger" v-else @click="apagar(jogador, index)">
+              <span>Apagar</span></button>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
 
-    <div id="editarcontent">
-      <router-link to="/cadastrojogadores">
-        <button>Cadastrar Novo Jogador</button>
-      </router-link>
-    </div>
-
-    <div class="editarcontent" id="editarcontent">
-      <h4 style="align-self: normal;">- Editar -</h4>
-      <Campo nome="Nome" v-model="jogador.nome"></Campo>
-      <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
-      <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
-      <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
-    </div>
-    <div id="editarcontent">
-      <span v-if="carregando">carregando...</span>
-    </div>
   </div>
 </template>
 
@@ -122,16 +114,4 @@ export default {
 
 <style scoped>
 
-#content {
-  display: grid;
-}
-
-#editarcontent {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: flex-start;
-}
 </style>
