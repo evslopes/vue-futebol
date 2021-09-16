@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "EditarTimes"
+name: "EditarTimes"
 }
 </script>
 

@@ -15,6 +15,7 @@
 import Campo from "../components/Campo";
 import CampoDropDown from "../components/CampoDropDown";
 import axios from "axios";
+import {POSICAO} from "../Const";
 
 let jogadorNovo = () => {
   return {
@@ -35,19 +36,7 @@ export default {
       jogadores: [],
       carregando: true,
       editando: false,
-      posicao: [
-        "ATACANTE",
-        "GOLEIRO",
-        "LATERAL DIREITO",
-        "LATERAL ESQUERDO",
-        "MEIA ARMADOR",
-        "PONTA DIREITA",
-        "PONTA ESQUERDA",
-        "QUARTO ZAGUEIRO",
-        "SEGUNDO VOLANTE",
-        "VOLANTE",
-        "ZAGUEIRO CENTRAL"
-      ],
+      posicao: POSICAO,
     };
   },
   methods: {
@@ -67,7 +56,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`$http://localhost:3000/jogadores/id/${jogador.id}`)
+          .delete(`$http://localhost:3000/jogadores/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;

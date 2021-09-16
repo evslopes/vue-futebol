@@ -31,6 +31,7 @@ import Campo from "../components/Campo.vue";
 import CampoText from "../components/CampoText";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
+import {ESTADOS} from "../Const";
 
 let timeNovo = (max) => {
   let max_id = max || 0
@@ -52,15 +53,7 @@ export default {
       times: [],
       carregando: true,
       editando: false,
-      estados: [
-        "AC", "AL", "AP", "AM",
-        "BA", "CE", "DF", "ES", "GO",
-        "MA", "MT", "MS", "MG",
-        "PA", "PB", "PR", "PE", "PI",
-        "RJ", "RN", "RS", "RO", "RR",
-        "SC", "SE", "SP",
-        "TO",
-      ],
+      estados: ESTADOS,
     };
   },
   methods: {
@@ -81,7 +74,7 @@ export default {
     apagar(time, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/times/id/${time.id}`)
+          .delete(`http://localhost:3000/times/${time.id}`)
           .then(() => {
             this.times.splice(index, 1);
             this.carregando = false;

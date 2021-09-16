@@ -21,6 +21,7 @@
 import Campo from "../components/Campo.vue";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
+import {POSICAO} from "../Const";
 
 let jogadorNovo = (time_id,max) => {
   let max_id = max || 0
@@ -40,19 +41,7 @@ export default {
       jogadores: [],
       carregando: true,
       editando: false,
-      posicao: [
-        "ATACANTE",
-        "GOLEIRO",
-        "LATERAL DIREITO",
-        "LATERAL ESQUERDO",
-        "MEIA ARMADOR",
-        "PONTA DIREITA",
-        "PONTA ESQUERDA",
-        "QUARTO ZAGUEIRO",
-        "SEGUNDO VOLANTE",
-        "VOLANTE",
-        "ZAGUEIRO CENTRAL"
-      ],
+      posicao: POSICAO,
     };
   },
   computed: {
@@ -77,7 +66,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/jogadores/id/${jogador.id}`)
+          .delete(`http://localhost:3000/jogadores/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;

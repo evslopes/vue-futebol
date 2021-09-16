@@ -41,6 +41,18 @@
 <script>
 import axios from "axios";
 
+let timeNovo = (max) => {
+  let max_id = max || 0
+  return {
+    id: max_id + 1,
+    nome: "",
+    estado: "",
+    tecnico: "",
+    torcida: "",
+    fundacao_ano: "",
+    info: "",
+  };
+};
 
 export default {
   components: {},
@@ -57,6 +69,32 @@ export default {
       },
       times: [],
     };
+  },
+
+  methods: {
+    salvar() {
+      axios
+          .post("http://localhost:3000/times", {...this.time})
+          .then(() => {
+            this.times.push(this.time);
+            this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
+            this.editando = false
+            this.carregando = false;
+          });
+    },
+    editar(time) {
+      this.editando = true;
+      this.time = time;
+    },
+    apagar(time, index) {
+      this.carregando = true;
+      axios
+          .delete(`http://localhost:3000/times/${time.id}`)
+          .then(() => {
+            this.times.splice(index, 1);
+            this.carregando = false;
+          });
+    },
   },
   mounted() {
     axios.get('http://localhost:3000/times').then(({data}) => {

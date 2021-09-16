@@ -93,7 +93,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`$http://localhost:3000/jogadores/id/${jogador.id}`)
+          .delete(`$http://localhost:3000/jogadores/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;
