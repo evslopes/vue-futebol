@@ -38,11 +38,11 @@
     },
     {
       "id": 5,
-      "nome": "",
-      "estado": "",
-      "tecnico": "",
-      "torcida": "",
-      "fundacao_ano": "",
+      "nome": "Cruzeiro",
+      "estado": "MG",
+      "tecnico": "Não Sei",
+      "torcida": "098765432345",
+      "fundacao_ano": "1900",
       "info": ""
     },
     {
@@ -57,7 +57,7 @@
   ],
   "jogadores": [
     {
-      "id": 1,
+      "id": 55,
       "nome": "Pele",
       "camisa": "10",
       "salario": "20000000",
@@ -129,114 +129,22 @@
       "timeId": 1
     },
     {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "Ox_79cD"
+      "id": 1,
+      "nome": "sadasda",
+      "salario": "",
+      "posicao": ""
     },
     {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "CeoNeAD"
+      "nome": "asdads",
+      "salario": "",
+      "posicao": "",
+      "id": 56
     },
     {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "t6n7TIW"
-    },
-    {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "olPYZOs"
-    },
-    {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "bZM7lit"
-    },
-    {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "sascoRO"
-    },
-    {
-      "data": [
-        {
-          "id": "INCREMENT",
-          "nome": "",
-          "estado": "",
-          "tecnico": "",
-          "torcida": "",
-          "fundacao_ano": "",
-          "info": ""
-        }
-      ],
-      "id": "9QimVWB"
-    },
-    {
-      "data": [
-        {
-          "id": "",
-          "nome": "",
-          "salario": "",
-          "posicao": "",
-          "time_id": ""
-        }
-      ],
-      "id": "onqB7pH"
+      "nome": "asdsa",
+      "salario": "",
+      "posicao": "",
+      "id": 57
     }
   ]
 }

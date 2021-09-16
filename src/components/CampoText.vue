@@ -7,8 +7,8 @@
         class="form-control"
         :id="nome"
         :placeholder="nome"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)">
+        :value="value"
+        @input="$emit('value', $event.target.value)">
     </textarea>
   </div>
 </template>
@@ -16,8 +16,7 @@
 <script>
 export default {
   name: 'CampoText',
-  emits: ['update:modelValue'],
-  props: ['nome', 'modelValue', 'tipo'],
+  props: ['nome', 'value', 'tipo'],
   methods: {
     atualizar(){
       this.$emit('bombom')

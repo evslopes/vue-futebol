@@ -5,16 +5,15 @@
            class="form-control mx-auto"
            :id="nome"
            :placeholder="nome"
-           :value="modelValue"
-           @input="$emit('update:modelValue', $event.target.value)">
+           :value="value"
+           @input="$emit('input', $event.target.value)">
   </div>
 </template>
 
 <script>
 export default {
   name: 'Campo',
-  emits: ['update:modelValue'],
-  props: ['nome', 'modelValue', 'tipo'],
+  props: ['nome', 'value', 'tipo'],
   methods: {
     atualizar() {
       this.$emit('bombom')

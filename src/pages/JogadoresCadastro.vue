@@ -22,10 +22,9 @@ import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {POSICAO} from "../Const";
 
-let jogadorNovo = (time_id,max) => {
-  let max_id = max || 0
+let jogadorNovo = (time_id) => {
+
   return {
-    'id': max_id + 1,
     'nome': "",
     'salario': "",
     'posicao': "",
@@ -45,16 +44,17 @@ export default {
   },
   computed: {
     time_filtrado(){
-      return this.jogadores.filter(j => j.time.id === this.route.params.time_id)
+      return this.jogadores.filter(j => j.time.id === this.$route.params.time_id)
     }
   },
   methods: {
     salvar() {
       axios
           .post('http://localhost:3000/jogadores', {...this.jogador})
-          .then(() => {
+          .then((data) => {
+            this.jogador.id = data.id
             this.jogadores.push(this.jogador);
-            this.jogador = jogadorNovo(this.$route.params.time_id, Math.max(this.jogadores.map(j => j.id)));
+            this.jogador = jogadorNovo(this.$route.params.time_id);
             this.carregando = false;
           });
     },

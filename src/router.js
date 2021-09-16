@@ -3,10 +3,10 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Times from "./pages/Times";
 import Jogadores from "./pages/Jogadores";
-import CadastroJogadores from "./pages/CadastroJogadores";
-import CadastroTimes from "./pages/CadastroTimes";
-import EditarTimes from "@/pages/EditarTimes";
-import EditarJogadores from "@/pages/EditarJogadores";
+import CadastroJogadores from "./pages/JogadoresCadastro";
+import CadastroTimes from "./pages/TimesCadastro";
+import EditarTimes from "@/pages/TimesEditar";
+import EditarJogadores from "@/pages/JogadoresEditar";
 
 Vue.use(VueRouter);
 

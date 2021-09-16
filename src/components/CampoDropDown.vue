@@ -5,8 +5,8 @@
         class="form-control"
         :id="nome"
         :placeholder="Nome"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)">
+        :value="value"
+        @input="$emit('input', $event.target.value)">
       <option
           v-for="item in itens"
           :key="item"
@@ -19,8 +19,7 @@
 <script>
 export default {
   name: 'CampoDropDown',
-  emits: ['update:modelValue'],
-  props: ['nome', 'modelValue', 'itens'],
+  props: ['nome', 'value', 'itens'],
   methods: {
     atualizar(){
       this.$emit('bombom')

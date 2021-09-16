@@ -57,6 +57,7 @@ export default {
   },
   methods: {
     salvar() {
+      console.log(this.time)
       axios
           .post("http://localhost:3000/times", {...this.time})
           .then(() => {
