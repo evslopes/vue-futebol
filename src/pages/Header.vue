@@ -1,8 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <h1 class="navbar-brand" href="#">Frameworks Front-End e Conexão com Back-End</h1>
-      <h4> Elvis Lopes Teste de Perfomance 3</h4>
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="#">VueFut</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,7 +11,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Times</a>
+            <a class="nav-link" href="#"> Times </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Jogadores</a>
@@ -29,8 +28,10 @@
 <script>
 export default {
   name: 'Header',
-  props: {
-    msg: String
+  methods: {
+    mostrarTimes() {
+      this.$router.push({name: "times"});
+    }
   }
 }
 </script>
