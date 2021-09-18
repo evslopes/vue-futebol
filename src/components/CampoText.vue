@@ -8,7 +8,7 @@
         :id="nome"
         :placeholder="nome"
         :value="value"
-        @input="$emit('value', $event.target.value)">
+        @input="$emit('input', $event.target.value)">
     </textarea>
   </div>
 </template>

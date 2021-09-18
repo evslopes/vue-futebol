@@ -2,7 +2,7 @@
   <div>
     <h1 class="fs-1 px-2 mt-5">Tabela de Jogadores Cadastrados</h1>
 
-    <div >
+    <div>
       <router-link to="/cadastrojogadores">
         <button class="btn btn-primary fs-8 px-1 mt-1">Novo Jogador</button>
       </router-link>
@@ -26,9 +26,12 @@
           <td>{{ jogador.posicao }}</td>
           <td>{{ jogador.timeId }}</td>
           <td>
-            <button class="btn btn-warning fs-6 px-1 mt-1" @click="editar(jogador)"><span >Editar</span></button>
-            <button class="btn btn-danger fs-6 px-1 mt-1" @click="apagar(jogador, index)">
-              <span>Apagar</span></button>
+            <button class="btn btn-warning fs-8 px-1 mt-1" @click="editar(jogador)">
+              <router-link :to="{name: 'editarjogadores', params: {jogador:jogador.id - 1}}">Editar</router-link>
+            </button>
+            <button class="btn btn-danger fs-8 px-1 mt-1" @click="apagar(jogador, index)">
+              Apagar
+            </button>
           </td>
         </tr>
         </tbody>
@@ -38,19 +41,18 @@
   </div>
 </template>
 
-
 <script>
 import axios from "axios";
 import {POSICAO} from "@/Const";
 
-let jogadorNovo = (time_id,max) => {
+let jogadorNovo = (time_id, max) => {
   let max_id = max || 0
   return {
-    'id': max_id + 1,
-    'nome': "",
-    'salario': "",
-    'posicao': "",
-    'time_id': time_id
+    id: max_id + 1,
+    nome: "",
+    salario: "",
+    posicao: "",
+    time_id: time_id
   };
 };
 export default {
@@ -65,15 +67,7 @@ export default {
     };
   },
   methods: {
-    salvar() {
-      axios
-          .post('http://localhost:3000/jogadores', {...this.jogador})
-          .then(() => {
-            this.jogadores.push(this.time);
-            this.jogador = jogadorNovo();
-            this.carregando = false;
-          });
-    },
+
     editar(jogador) {
       this.editando = true;
       this.jogador = jogador;
@@ -81,7 +75,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`$http://localhost:3000/jogadores/id/${jogador.id}`)
+          .delete(`http://localhost:3000/jogadores/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;
@@ -89,7 +83,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/jogadores').then(({data}) => {
+    axios.get('http://localhost:3000/jogadores/').then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
     });

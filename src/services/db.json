@@ -1,150 +1,46 @@
 {
   "times": [
     {
-      "id": "1",
+      "id": 1,
       "nome": "Flamengo",
       "estado": "RJ",
-      "tecnico": "Renato Gaucho",
-      "torcida": "25700000",
-      "fundacao_ano": "1895",
-      "info": "O Clube de Regatas do Flamengo"
+      "tecnico": "Renato Ga´cuho",
+      "torcida": "213456785",
+      "fundacao_ano": "1903",
+      "info": "Mengão"
     },
     {
-      "id": "2",
+      "id": 2,
       "nome": "Fluminense",
-      "estado": "RJ",
+      "estado": "CE",
       "tecnico": "Não sei",
-      "torcida": "1000000",
-      "fundacao_ano": "1900",
-      "info": "Time 2"
-    },
-    {
-      "id": "3",
-      "nome": "Vasc0",
-      "estado": "RJ",
-      "tecnico": "Não sei",
-      "torcida": "10000",
-      "fundacao_ano": "1900",
-      "info": "Time 3"
-    },
-    {
-      "id": "4",
-      "nome": "Botafogo",
-      "estado": "RJ",
-      "tecnico": "Não sei",
-      "torcida": "10000",
-      "fundacao_ano": "1900",
-      "info": "Time 4"
-    },
-    {
-      "id": 5,
-      "nome": "Cruzeiro",
-      "estado": "MG",
-      "tecnico": "Não Sei",
-      "torcida": "098765432345",
-      "fundacao_ano": "1900",
-      "info": ""
-    },
-    {
-      "id": 6,
-      "nome": "",
-      "estado": "",
-      "tecnico": "",
-      "torcida": "",
+      "torcida": "234567",
       "fundacao_ano": "",
-      "info": ""
+      "info": "ewry"
     }
   ],
   "jogadores": [
     {
-      "id": 55,
-      "nome": "Pele",
+      "nome": "Pelé",
+      "salario": "123123",
+      "posicao": "ATACANTE",
       "camisa": "10",
-      "salario": "20000000",
-      "posicao": "Atacante",
-      "timeId": 1
+      "id": 1
     },
     {
-      "id": 2,
-      "nome": "Garrincha",
+      "nome": "Teste",
+      "salario": "123456",
+      "posicao": "GOLEIRO",
+      "camisa": "12345",
+      "id": 2
+    },
+    {
+      "nome": "teste",
+      "salario": "1234567",
+      "posicao": "GOLEIRO",
+      "time_id": "1",
       "camisa": "11",
-      "salario": "500000000",
-      "posicao": "Meio de Campo",
-      "timeId": 1
-    },
-    {
-      "id": 3,
-      "nome": "Zico",
-      "camisa": "9",
-      "salario": "500000000",
-      "posicao": "Atacante",
-      "timeId": 1
-    },
-    {
-      "id": 4,
-      "nome": "Pele",
-      "camisa": "10",
-      "salario": "20000000",
-      "posicao": "Atacante",
-      "timeId": 1
-    },
-    {
-      "id": 5,
-      "nome": "Garrincha",
-      "camisa": "11",
-      "salario": "500000000",
-      "posicao": "Meio de Campo",
-      "timeId": 1
-    },
-    {
-      "id": 6,
-      "nome": "Zico",
-      "camisa": "9",
-      "salario": "500000000",
-      "posicao": "Atacante",
-      "timeId": 1
-    },
-    {
-      "id": 7,
-      "nome": "Pele",
-      "camisa": "10",
-      "salario": "20000000",
-      "posicao": "Atacante",
-      "timeId": 1
-    },
-    {
-      "id": "8",
-      "nome": "Garrincha",
-      "camisa": "11",
-      "salario": "500000000",
-      "posicao": "Meio de Campo",
-      "timeId": 1
-    },
-    {
-      "id": "9",
-      "nome": "Zico",
-      "camisa": "9",
-      "salario": "500000000",
-      "posicao": "Atacante",
-      "timeId": 1
-    },
-    {
-      "id": 1,
-      "nome": "sadasda",
-      "salario": "",
-      "posicao": ""
-    },
-    {
-      "nome": "asdads",
-      "salario": "",
-      "posicao": "",
-      "id": 56
-    },
-    {
-      "nome": "asdsa",
-      "salario": "",
-      "posicao": "",
-      "id": 57
+      "id": 3
     }
   ]
 }

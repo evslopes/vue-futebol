@@ -6,7 +6,7 @@ export const store = new Vuex.Store({
     state() {  // equivalente ao data de um componente
         return {
             carregando: false,
-            times: []
+            times: [],
         }
     },
     getters: { // equivalente ao computed de um componente

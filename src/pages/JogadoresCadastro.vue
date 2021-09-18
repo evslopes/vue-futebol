@@ -8,6 +8,7 @@
       <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
       <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
     </div>
+    <Campo nome="Time" tipo="number" v-model="jogador.time_id"></Campo>
     <div>
       <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
         <router-link to="/jogadores">Salvar</router-link>
@@ -22,13 +23,13 @@ import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {POSICAO} from "../Const";
 
-let jogadorNovo = (time_id) => {
+let jogadorNovo = () => {
 
   return {
-    'nome': "",
-    'salario': "",
-    'posicao': "",
-    'time_id': time_id
+    nome: "",
+    salario: "",
+    posicao: "",
+    time_id: ""
   };
 };
 export default {
@@ -43,7 +44,7 @@ export default {
     };
   },
   computed: {
-    time_filtrado(){
+    time_filtrado() {
       return this.jogadores.filter(j => j.time.id === this.$route.params.time_id)
     }
   },
@@ -62,23 +63,14 @@ export default {
       this.editando = true;
       this.jogador = jogador;
     },
-    apagar(jogador, index) {
-      this.carregando = true;
-      axios
-          .delete(`http://localhost:3000/jogadores/${jogador.id}`)
-          .then(() => {
-            this.jogadores.splice(index, 1);
-            this.carregando = false;
-          });
+    mounted() {
+      axios.get('http://localhost:3000/jogadores').then(({data}) => {
+        this.jogador = jogadorNovo(this.$route.params.time_id, Math.max(this.jogadores.map(j => j.id)));
+        this.jogadores = data;
+        this.carregando = false;
+      });
     },
-  },
-  mounted() {
-    axios.get('http://localhost:3000/jogadores').then(({data}) => {
-      this.jogador = jogadorNovo(this.$route.params.time_id, Math.max(this.jogadores.map(j => j.id)));
-      this.jogadores = data;
-      this.carregando = false;
-    });
-  },
+  }
 };
 </script>
 

@@ -60,7 +60,8 @@ export default {
       console.log(this.time)
       axios
           .post("http://localhost:3000/times", {...this.time})
-          .then(() => {
+          .then((data) => {
+            this.times.id = data.id
             this.times.push(this.time);
             this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
             this.editando = false

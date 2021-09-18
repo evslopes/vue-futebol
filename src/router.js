@@ -30,7 +30,7 @@ export default new VueRouter({
             component: CadastroTimes
         },
         {
-            path: '/editartimes',
+            path: '/editartimes/:time',
             name: 'editartimes',
             component: EditarTimes
         },
@@ -45,7 +45,7 @@ export default new VueRouter({
             component: CadastroJogadores
         },
         {
-            path: '/editarjogadores',
+            path: '/editarjogadores/:jogador',
             name: 'editarjogadores',
             component: EditarJogadores
         }

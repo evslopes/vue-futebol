@@ -6,10 +6,10 @@
       <Campo nome="Camisa" tipo="number" v-model="jogador.camisa"></Campo>
       <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
       <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
+      <Campo nome="Time" tipo="number" v-model="jogador.time_id"></Campo>
     </div>
     <div>
-      <span v-if="carregando">carregando...</span>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
+      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
         <router-link to="/jogadores">Salvar</router-link>
       </button>
     </div>
@@ -21,12 +21,12 @@ import Campo from "../components/Campo";
 import CampoDropDown from "../components/CampoDropDown";
 import axios from "axios";
 import {POSICAO} from "../Const";
-import API from "@/services/API";
 
 let jogadorNovo = () => {
   return {
     id: "",
     nome: "",
+    camisa: "",
     salario: "",
     posicao: "",
     time_id: ""
@@ -46,12 +46,12 @@ export default {
     };
   },
   methods: {
-    salvar() {
+    salvar(index) {
       axios
-          .post(API, {data: [this.jogador]})
+          .put(`http://localhost:3000/jogadores/${Number(this.jogador.id -1)}`, {...this.jogador})
           .then(() => {
-            this.jogadores.push(this.time);
-            this.jogador = jogadorNovo();
+            this.jogadores.push(index, 1);
+            this.editando = false
             this.carregando = false;
           });
     },
@@ -59,23 +59,15 @@ export default {
       this.editando = true;
       this.jogador = jogador;
     },
-    apagar(jogador, index) {
-      this.carregando = true;
-      axios
-          .delete(`${API}/${jogador.id}`)
-          .then(() => {
-            this.jogadores.splice(index, 1);
-            this.carregando = false;
-          });
-    },
   },
   mounted() {
-    axios.get(API).then(({data}) => {
+    axios.get('http://localhost:3000/jogadores/').then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
+      this.jogador = this.jogadores[Number(this.$route.params.jogador)]
     });
   },
-}
+};
 </script>
 
 <style scoped>

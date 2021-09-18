@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12">
+  <div class="col-16">
     <label  :for="nome" class="form-label mx-auto" >{{ nome }}</label>
     <input  :type="tipo"
            class="form-control mx-auto"
@@ -26,6 +26,10 @@ export default {
 
 .colorido {
 
+}
+
+.textoAesquerda{
+  text-align: left;
 }
 
 </style>

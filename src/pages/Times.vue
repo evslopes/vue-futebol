@@ -20,15 +20,15 @@
         </thead>
         <tbody>
         <tr v-bind:key="time.id" v-for="(time, index) in times">
-          <td>{{ this.time.nome }}</td>
-          <td>{{ this.time.estado }}</td>
+          <td>{{ time.nome }}</td>
+          <td>{{ time.estado }}</td>
           <td>{{ time.tecnico }}</td>
           <td>{{ time.torcida }}</td>
           <td>{{ time.fundacao_ano }}</td>
           <td>{{ time.info }}</td>
           <td>
             <button class="btn btn-warning fs-8 px-1 mt-1" @click="editar(time)">
-              <router-link to="EditarTimes">Editar</router-link>
+              <router-link :to="{name: 'editartimes', params: {time:time.id - 1}}">Editar</router-link>
             </button>
             <button class="btn btn-danger fs-8 px-1 mt-1" @click="apagar(time, index)">Apagar</button>
           </td>
@@ -76,7 +76,8 @@ export default {
     salvar() {
       axios
           .post("http://localhost:3000/times", {...this.time})
-          .then(() => {
+          .then((data) => {
+            this.times.id = data.id
             this.times.push(this.time);
             this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
             this.editando = false
@@ -98,7 +99,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/times').then(({data}) => {
+    axios.get('http://localhost:3000/times/').then(({data}) => {
       this.times = data;
     });
   },

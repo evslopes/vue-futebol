@@ -18,8 +18,8 @@
       ></CampoText>
     </div>
     <div>
-      <span v-if="carregando">carregando...</span>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" v-else @click="salvar">
+
+      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
         <router-link to="/times">Salvar</router-link>
       </button>
     </div>
@@ -33,24 +33,20 @@ import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {ESTADOS} from "../Const";
 
-let timeNovo = (max) => {
-  let max_id = max || 0
-  return {
-    id: max_id + 1,
-    nome: "",
-    estado: "",
-    tecnico: "",
-    torcida: "",
-    fundacao_ano: "",
-    info: "",
-  };
-};
 export default {
   name: 'EditarTimes',
   components: {Campo, CampoDropDown, CampoText},
   data() {
     return {
-      time: timeNovo(),
+      time: {
+        id: "",
+        nome: "",
+        estado: "",
+        tecnico: "",
+        torcida: "",
+        fundacao_ano: "",
+        info: "",
+      },
       times: [],
       carregando: true,
       editando: false,
@@ -58,12 +54,11 @@ export default {
     };
   },
   methods: {
-    salvar() {
+    salvar(index) {
       axios
-          .post("http://localhost:3000/times", {...this.time})
+          .put(`http://localhost:3000/times/${Number(this.time.id - 1)}`, {...this.time})
           .then(() => {
-            this.times.push(this.time);
-            this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
+            this.times.push(index, 1);
             this.editando = false
             this.carregando = false;
           });
@@ -72,21 +67,12 @@ export default {
       this.editando = true;
       this.time = time;
     },
-    apagar(time, index) {
-      this.carregando = true;
-      axios
-          .delete(`http://localhost:3000/times/${time.id}`)
-          .then(() => {
-            this.times.splice(index, 1);
-            this.carregando = false;
-          });
-    },
   },
-  mounted() {
-    axios.get("http://localhost:3000/times").then(({data}) => {
+   mounted() {
+    axios.get(`http://localhost:3000/times/`).then(({data}) => {
       this.times = data;
       this.carregando = false;
-      this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
+      this.time = this.times[Number(this.$route.params.time)];
     });
   },
 };
