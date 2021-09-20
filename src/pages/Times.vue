@@ -3,7 +3,7 @@
     <h1 class="fs-1 px-2 mt-5">Tabela de Times Cadastrados</h1>
 
     <div>
-      <router-link to="/cadastrotimes">
+      <router-link to="CadastroTimes">
         <button class="btn btn-primary fs-8 px-1 mt-1">Novo Time</button>
       </router-link>
     </div>
@@ -11,6 +11,7 @@
     <div>
       <table class="table px-2 mt-5">
         <thead>
+        <th scope="col">Id</th>
         <th scope="col">Nome</th>
         <th scope="col">Estado</th>
         <th scope="col">Técnico</th>
@@ -20,6 +21,7 @@
         </thead>
         <tbody>
         <tr v-bind:key="time.id" v-for="(time, index) in times">
+          <td>{{ time.id }}</td>
           <td>{{ time.nome }}</td>
           <td>{{ time.estado }}</td>
           <td>{{ time.tecnico }}</td>

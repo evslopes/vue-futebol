@@ -2,12 +2,12 @@
   "times": [
     {
       "id": 1,
-      "nome": "Flamengo",
-      "estado": "RJ",
-      "tecnico": "Renato Ga´cuho",
-      "torcida": "213456785",
-      "fundacao_ano": "1903",
-      "info": "Mengão"
+      "nome": "Fluminense",
+      "estado": "CE",
+      "tecnico": "Não sei",
+      "torcida": "2345670",
+      "fundacao_ano": "",
+      "info": "ewry"
     },
     {
       "id": 2,
@@ -41,6 +41,30 @@
       "time_id": "1",
       "camisa": "11",
       "id": 3
+    }
+  ],
+  "partidas": [
+    {
+      "id": 1,
+      "time_casa": 2,
+      "time_visitante": 1
+    },
+    {
+      "id": 2,
+      "time_casa": "4",
+      "time_visitante": "2"
+    }
+  ],
+  "gols": [
+    {
+      "id": 10000,
+      "partida_id": 1,
+      "jogador_id": 11
+    },
+    {
+      "id": 10001,
+      "partida_id": 2,
+      "jogador_id": 12
     }
   ]
 }

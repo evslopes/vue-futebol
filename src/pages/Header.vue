@@ -24,9 +24,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Partidas</a>
+            <a class="nav-link">
+              <router-link to="Partidas">Partidas</router-link>
+            </a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a class="nav-link">
+              <router-link to="Gols">Gols</router-link>
+            </a>
+          </li>
+          </ul>
       </div>
     </div>
   </nav>
