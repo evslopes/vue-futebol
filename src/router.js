@@ -82,7 +82,7 @@ export default new VueRouter({
             component: GolsCadastrar
         },
         {
-            path: '/editargols/:gols',
+            path: '/editargols/:gol',
             name: 'editargols',
             component: GolsEditar
         }

@@ -2,69 +2,52 @@
   "times": [
     {
       "id": 1,
-      "nome": "Fluminense",
-      "estado": "CE",
-      "tecnico": "Não sei",
-      "torcida": "2345670",
-      "fundacao_ano": "",
-      "info": "ewry"
+      "nome": "Flamengo",
+      "estado": "RJ",
+      "tecnico": "Renato Gaúcho",
+      "torcida": "1234567890",
+      "fundacao_ano": "1903",
+      "info": "Mengão!"
     },
     {
       "id": 2,
       "nome": "Fluminense",
-      "estado": "CE",
+      "estado": "RJ",
       "tecnico": "Não sei",
-      "torcida": "234567",
-      "fundacao_ano": "",
-      "info": "ewry"
+      "torcida": "123456789",
+      "fundacao_ano": "1905",
+      "info": "Tricolor carioca"
     }
   ],
   "jogadores": [
     {
       "nome": "Pelé",
-      "salario": "123123",
+      "salario": "1234567890",
       "posicao": "ATACANTE",
-      "camisa": "10",
-      "id": 1
-    },
-    {
-      "nome": "Teste",
-      "salario": "123456",
-      "posicao": "GOLEIRO",
-      "camisa": "12345",
-      "id": 2
-    },
-    {
-      "nome": "teste",
-      "salario": "1234567",
-      "posicao": "GOLEIRO",
       "time_id": "1",
       "camisa": "11",
-      "id": 3
+      "id": 1
     }
   ],
   "partidas": [
     {
       "id": 1,
-      "time_casa": 2,
-      "time_visitante": 1
-    },
-    {
-      "id": 2,
-      "time_casa": "4",
+      "time_casa": "1",
       "time_visitante": "2"
     }
   ],
   "gols": [
     {
-      "id": 10000,
-      "partida_id": 1,
-      "jogador_id": 11
+      "id": 1,
+      "time": "3",
+      "jogador": "2",
+      "partida": "1"
     },
     {
-      "id": 10001,
-      "partida_id": 2,
-      "jogador_id": 12
+      "id": 2,
+      "time": "2",
+      "jogador": "2",
+      "partida": "2"
     }
   ]
 }

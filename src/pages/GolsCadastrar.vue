@@ -1,11 +1,71 @@
 <template>
-<div></div>
+  <div class="container">
+    <h1 class="fs-1 px-2 mt-5">Cadastro de Gols</h1>
+
+    <div>
+      <Campo nome="Time" v-model="gol.time"></Campo>
+      <Campo nome="Jogador" tipo="number" v-model="gol.jogador"></Campo>
+      <Campo nome="Partida" tipo="number" v-model="gol.partida"></Campo>
+      <div>
+        <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
+          <router-link to="Gols">Salvar</router-link>
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Campo from "../components/Campo.vue";
+import axios from "axios";
+
+let golNovo = () => {
+  return {
+    id: "",
+    time: "",
+    jogador: "",
+    partida: ""
+  };
+};
 export default {
-  name: "GolsCadastrar"
-}
+  components: {Campo},
+  data() {
+    return {
+      gol: golNovo(),
+      gols: [],
+      carregando: true,
+      editando: false,
+    };
+  },
+  computed: {
+    time_filtrado() {
+      return this.jogadores.filter(j => j.time.id === this.$route.params.time_id)
+    }
+  },
+  methods: {
+    salvar() {
+      axios
+          .post('http://localhost:3000/gols', {...this.gol})
+          .then((data) => {
+            this.gol.id = data.id
+            this.gols.push(this.gol);
+            this.gol = golNovo(Math.max(...this.gols.map(g => g.id)));
+            this.carregando = false;
+          });
+    },
+    editar(gol) {
+      this.editando = true;
+      this.gol = gol;
+    },
+    mounted() {
+      axios.get('http://localhost:3000/gols').then(({data}) => {
+        this.gol = golNovo(this.$route.params.gols, Math.max(this.gols.map(g => g.id)));
+        this.gols = data;
+        this.carregando = false;
+      });
+    },
+  }
+};
 </script>
 
 <style scoped>
