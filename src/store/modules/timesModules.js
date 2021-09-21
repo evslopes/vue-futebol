@@ -1,8 +1,7 @@
-import Vuex from 'vuex'
-import axios from 'axios'
+import axios from "axios";
 import API from "@/services/API";
 
-export const store = new Vuex.Store({
+export default {
     state() {  // equivalente ao data de um componente
         return {
             carregando: false,
@@ -71,4 +70,4 @@ export const store = new Vuex.Store({
         }
 
     }
-})
+}
