@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <h1 class="fs-1 px-2 mt-5">Cadastro de Partida</h1>
-    <div>
+  <div class="container-fluid container-md bg-light">
+    <h1 class="fs-1 px-2 mt-5 display-1">Cadastro de Partida</h1>
+    <div class="d-grid gap-2 col-6 mx-auto">
       <Campo nome="Time da Casa" tipo="number" v-model="partida.time_casa"></Campo>
       <Campo nome="Time Visitante" tipo="number" v-model="partida.time_visitante"></Campo>
 
     </div>
-    <div>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
+    <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
+      <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
         <router-link to="Partidas">Salvar</router-link>
       </button>
     </div>
@@ -27,6 +27,7 @@ let partidaNova = (max) => {
   };
 };
 export default {
+  name: 'PartidasCadastro',
   components: {Campo},
   data() {
     return {

@@ -1,10 +1,10 @@
 <template>
-  <div class="col-12">
-    <label :for="nome" class="form-label">{{ nome }}</label>
+  <div class="col-12 text-sm-lef text-start">
+    <label :for="nome" class="form-label fs-5">{{ nome }}</label>
     <select
-        class="form-control"
+        class="form-control dropdown"
         :id="nome"
-        :placeholder="Nome"
+        :placeholder="nome"
         :value="value"
         @input="$emit('input', $event.target.value)">
       <option

@@ -13,6 +13,9 @@ import PartidasEditar from "@/pages/PartidasEditar";
 import Gols from "@/pages/Gols";
 import GolsCadastrar from "@/pages/GolsCadastrar";
 import GolsEditar from "@/pages/GolsEditar";
+import TimeDetalhes from "@/pages/TimeDetalhes";
+import JogadoresDetalhes from "@/pages/JogadoresDetalhes";
+import PartidasDetalhes from "@/pages/PartidasDetalhes";
 
 Vue.use(VueRouter);
 
@@ -31,6 +34,12 @@ export default new VueRouter({
         },
 
         {
+            path: '/times/:time',
+            name: 'detalhestime',
+            component: TimeDetalhes
+        },
+
+        {
             path: '/cadastrotimes',
             name: 'cadastrotimes',
             component: CadastroTimes
@@ -46,6 +55,11 @@ export default new VueRouter({
             component: Jogadores
         },
         {
+            path: '/jogadores/:jogador',
+            name: 'detalhesjogador',
+            component: JogadoresDetalhes
+        },
+        {
             path: '/cadastrojogadores',
             name: 'cadastrojogadores',
             component: CadastroJogadores
@@ -59,6 +73,12 @@ export default new VueRouter({
             path: '/partidas',
             name: 'partidas',
             component: Partidas
+        },
+
+        {
+            path: '/partidas/:partida',
+            name: 'detalhespartida',
+            component: PartidasDetalhes
         },
 
         {

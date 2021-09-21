@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5">Editar Gols</h1>
-
-    <div>
+    <div class="d-grid gap-2 col-6 mx-auto">
       <Campo nome="Time" tipo="number" v-model="gol.time"></Campo>
       <Campo nome="Jogador" tipo="number" v-model="gol.jogador"></Campo>
       <Campo nome="Partida" tipo="number" v-model="gol.partida"></Campo>
 
-      <div>
-        <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
+      <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
+        <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
           <router-link to="Gols">Salvar</router-link>
         </button>
       </div>

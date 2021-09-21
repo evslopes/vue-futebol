@@ -1,13 +1,12 @@
 <template>
-  <div>
+  <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5">Edição de Partida</h1>
-    <div>
+    <div class="d-grid gap-2 col-6 mx-auto">
       <Campo nome="Time da Casa" v-model="partida.time_casa"></Campo>
       <Campo nome="Time Visitante" v-model="partida.time_visitante"></Campo>
       </div>
-    <div>
-
-      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
+    <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
+      <button class="btn btn-outline-success btn-mdfs-6 px-1 mt-1 me-md-2" @click="salvar">
         <router-link to="Partidas">Salvar</router-link>
       </button>
     </div>

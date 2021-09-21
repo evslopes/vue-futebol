@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1 class="fs-1 px-2 mt-5">Cadastro de Times</h1>
-    <div>
+  <div class="container-fluid container-md bg-light">
+    <h1 class="fs-1 px-2 mt-5 display-1">Cadastro de Time</h1>
+    <div class="d-grid gap-2 col-6 mx-auto">
       <Campo nome="Nome" v-model="time.nome"></Campo>
       <CampoDropDown
           nome="Estado"
@@ -17,8 +17,8 @@
           v-model="time.info"
       ></CampoText>
     </div>
-    <div>
-      <button class="btn btn-secondary fs-8 px-8 mt-8" @click="salvar">
+    <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
+      <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
         <router-link to="/times">Salvar</router-link>
       </button>
     </div>

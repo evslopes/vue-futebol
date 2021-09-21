@@ -11,12 +11,21 @@
     },
     {
       "id": 2,
-      "nome": "Fluminense",
-      "estado": "RJ",
+      "nome": "Cruzeiro",
+      "estado": "MG",
+      "tecnico": "Não sei ",
+      "torcida": "1234567890",
+      "fundacao_ano": "1903",
+      "info": "Raposa! "
+    },
+    {
+      "id": 3,
+      "nome": "Atlético Mineiro",
+      "estado": "MG",
       "tecnico": "Não sei",
-      "torcida": "123456789",
+      "torcida": "1234567890",
       "fundacao_ano": "1905",
-      "info": "Tricolor carioca"
+      "info": "Galo! "
     }
   ],
   "jogadores": [
@@ -25,8 +34,24 @@
       "salario": "1234567890",
       "posicao": "ATACANTE",
       "time_id": "1",
-      "camisa": "11",
+      "camisa": "7",
       "id": 1
+    },
+    {
+      "nome": "Garrincha",
+      "salario": "2147890",
+      "posicao": "PONTA ESQUERDA",
+      "time_id": "2",
+      "camisa": "10",
+      "id": 2
+    },
+    {
+      "nome": "Romário",
+      "salario": "2345678900",
+      "posicao": "ATACANTE",
+      "time_id": "1",
+      "camisa": "11",
+      "id": 3
     }
   ],
   "partidas": [
@@ -34,6 +59,11 @@
       "id": 1,
       "time_casa": "1",
       "time_visitante": "2"
+    },
+    {
+      "id": 2,
+      "time_casa": "3",
+      "time_visitante": "1"
     }
   ],
   "gols": [
@@ -45,9 +75,15 @@
     },
     {
       "id": 2,
-      "time": "2",
+      "time": "1",
       "jogador": "2",
-      "partida": "2"
+      "partida": "3"
+    },
+    {
+      "id": 3,
+      "time": "3",
+      "jogador": "4",
+      "partida": "1"
     }
   ]
 }

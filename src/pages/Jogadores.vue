@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <h1 class="fs-1 px-2 mt-5">Tabela de Jogadores Cadastrados</h1>
+  <div class="container-fluid container-md">
+    <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Jogadores</h1>
 
-    <div>
+    <div class="d-grid gap-2 col-6 mx-auto">
       <router-link to="/cadastrojogadores">
-        <button class="btn btn-primary fs-8 px-1 mt-1">Novo Jogador</button>
+        <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Novo Jogador</button>
       </router-link>
     </div>
 
     <div>
       <table class="table px-2 mt-5">
         <thead>
+        <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Camisa</th>
         <th scope="col">Salário</th>
@@ -20,16 +21,21 @@
         </thead>
         <tbody>
         <tr v-bind:key="jogador.id" v-for="(jogador, index) in jogadores">
-          <td scope="row">{{ jogador.nome }}</td>
-          <td>{{ jogador.camisa }}</td>
-          <td>{{ jogador.salario }}</td>
-          <td>{{ jogador.posicao }}</td>
-          <td>{{ jogador.timeId }}</td>
-          <td>
-            <button class="btn btn-warning fs-8 px-1 mt-1" @click="editar(jogador)">
+          <td scope="row">{{ jogador.id }}</td>
+          <td scope="row">
+            <router-link :to="{name: 'detalhesjogador', params: {jogador:jogador.id - 1}}">
+            {{ jogador.nome }}
+            </router-link>
+          </td>
+          <td scope="row">{{ jogador.camisa }}</td>
+          <td scope="row">{{ jogador.salario }}</td>
+          <td scope="row">{{ jogador.posicao }}</td>
+          <td scope="row">{{ jogador.time_id }}</td>
+          <td scope="row" class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(jogador)">
               <router-link :to="{name: 'editarjogadores', params: {jogador:jogador.id - 1}}">Editar</router-link>
             </button>
-            <button class="btn btn-danger fs-8 px-1 mt-1" @click="apagar(jogador, index)">
+            <button class="btn btn-outline-danger btn-sm fs-12 px-1 mt-1 me-md-2" @click="apagar(jogador, index)">
               Apagar
             </button>
           </td>
@@ -45,14 +51,13 @@
 import axios from "axios";
 import {POSICAO} from "@/Const";
 
-let jogadorNovo = (time_id, max) => {
-  let max_id = max || 0
+let jogadorNovo = () => {
   return {
-    id: max_id + 1,
+    id: "",
     nome: "",
     salario: "",
     posicao: "",
-    time_id: time_id
+    time_id: ""
   };
 };
 export default {

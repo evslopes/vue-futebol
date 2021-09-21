@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12">
-    <label :for="nome" class="form-label">{{ nome }}</label>
+  <div class="col-12 text-start">
+    <label :for="nome" class="form-label fs-5">{{ nome }}</label>
     <textarea
         v-if="tipo === 'texto'"
         :type="tipo"
