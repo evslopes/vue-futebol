@@ -16,6 +16,7 @@
 <script>
 import Campo from "../components/Campo.vue";
 import axios from "axios";
+import API from "@/services/API";
 
 export default {
   name: 'EditarTimes',
@@ -35,7 +36,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/partidas/${Number(this.partida.id)}`, {...this.partida})
+          .put(`${API}/partidas/${Number(this.partida.id)}`, {...this.partida})
           .then(() => {
             this.partidas.push(index, 1);
             this.editando = false
@@ -48,7 +49,7 @@ export default {
     },
   },
   mounted() {
-    axios.get(`http://localhost:3000/partidas/`).then(({data}) => {
+    axios.get(`${API}/partidas/`).then(({data}) => {
       this.partidas = data;
       this.carregando = false;
       this.partida = this.partidas[Number(this.$route.params.partida)];

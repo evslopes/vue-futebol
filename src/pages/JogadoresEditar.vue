@@ -22,6 +22,7 @@ import Campo from "../components/Campo";
 import CampoDropDown from "../components/CampoDropDown";
 import axios from "axios";
 import {POSICAO} from "../Const";
+import API from "@/services/API";
 
 let jogadorNovo = () => {
   return {
@@ -50,7 +51,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/jogadores/${Number(this.jogador.id)}`, {...this.jogador})
+          .put(`${API}/jogadores/${Number(this.jogador.id)}`, {...this.jogador})
           .then(() => {
             this.jogadores.push(index, 1);
             this.editando = false
@@ -63,7 +64,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/jogadores/').then(({data}) => {
+    axios.get(`${API}/jogadores/`).then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
       this.jogador = this.jogadores[Number(this.$route.params.jogador)]

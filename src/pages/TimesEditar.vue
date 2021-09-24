@@ -32,6 +32,7 @@ import CampoText from "../components/CampoText";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {ESTADOS} from "../Const";
+import API from "@/services/API";
 
 export default {
   name: 'EditarTimes',
@@ -56,7 +57,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/times/${Number(this.time.id)}`, {...this.time})
+          .put(`${API}/times/${Number(this.time.id)}`, {...this.time})
           .then(() => {
             this.times.push(index, 1);
             this.editando = false
@@ -68,8 +69,8 @@ export default {
       this.time = time;
     },
   },
-   mounted() {
-    axios.get(`http://localhost:3000/times/`).then(({data}) => {
+  mounted() {
+    axios.get(`${API}/times/`).then(({data}) => {
       this.times = data;
       this.carregando = false;
       this.time = this.times[Number(this.$route.params.time)];

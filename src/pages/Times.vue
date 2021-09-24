@@ -1,13 +1,11 @@
 <template>
   <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Times Cadastrados</h1>
-
     <div class="d-grid gap-2 col-6 mx-auto">
       <router-link to="CadastroTimes">
         <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Novo Time</button>
       </router-link>
     </div>
-
     <div>
       <table class="table px-2 mt-5">
         <thead>
@@ -26,7 +24,7 @@
           <td>{{ time.id }}</td>
           <td class="text-decoration-none">
             <router-link :to="{name: 'detalhestime', params: {time:time.id - 1}}">
-            {{ time.nome }}
+              {{ time.nome }}
             </router-link>
           </td>
           <td>{{ time.estado }}</td>
@@ -41,7 +39,8 @@
                 Editar
               </router-link>
             </button>
-            <button class="btn btn-outline-danger btn-sm fs-12 px-1 mt-1 me-md-2" @click="apagar(time, index)">Apagar</button>
+            <button class="btn btn-outline-danger btn-sm fs-12 px-1 mt-1 me-md-2" @click="apagar(time, index)">Apagar
+            </button>
           </td>
         </tr>
         </tbody>
@@ -53,6 +52,7 @@
 
 <script>
 import axios from "axios";
+import API from "@/services/API";
 
 export default {
   components: {},
@@ -75,7 +75,7 @@ export default {
     apagar(time, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/times/${time.id}`)
+          .delete(`${API}/times/${time.id}`)
           .then(() => {
             this.times.splice(index, 1);
             this.carregando = false;
@@ -83,7 +83,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/times/').then(({data}) => {
+    axios.get(`${API}/times/`).then(({data}) => {
       this.times = data;
     });
   },

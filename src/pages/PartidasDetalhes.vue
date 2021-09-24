@@ -1,7 +1,6 @@
 <template>
   <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5 display-1">Detalhes da Partida</h1>
-
     <div>
       <table class="table px-2 mt-5">
         <thead>
@@ -11,24 +10,19 @@
         <th scope="col">Vs</th>
         <th scope="col">Gols Visitante</th>
         <th scope="col">Time Visitante</th>
-
         </thead>
         <tbody>
         <tr>
-          <td>
-              {{ partida.id }}
-          </td>
+          <td>{{ partida.id }}</td>
           <td>{{ partida.time_casa }}</td>
-          <td> GOLs </td>
+          <td> GOLs</td>
           <td>VS</td>
           <td>GOLS</td>
           <td>{{ partida.time_visitante }}</td>
-
         </tr>
         </tbody>
       </table>
     </div>
-
     <h1 class="fs-1 px-2 mt-5 display-1">Gols da Partida</h1>
     <div>
       <table class="table px-2 mt-5">
@@ -44,7 +38,6 @@
           <td>{{ gol.time }}</td>
           <td>{{ gol.jogador }}</td>
           <td>{{ gol.partida }}</td>
-
         </tr>
         </tbody>
       </table>
@@ -54,8 +47,8 @@
 </template>
 
 <script>
-
 import axios from "axios";
+import API from "@/services/API";
 
 export default {
 
@@ -79,13 +72,13 @@ export default {
   },
 
   mounted() {
-    axios.get('http://localhost:3000/partidas/').then(({data}) => {
+    axios.get(`${API}/partidas/`).then(({data}) => {
       this.partidas = data;
       this.carregando = false;
       this.partida = this.partidas[Number(this.$route.params.partida)];
     });
 
-    axios.get(`http://localhost:3000/gols?partida=${Number(this.$route.params.partida) + 1}`).then(({data}) => {
+    axios.get(`${API}/gols?partida=${Number(this.$route.params.partida) + 1}`).then(({data}) => {
       this.gols = data;
       this.carregando = false;
       this.gol = this.gols[Number(this.$route.params.gol)]

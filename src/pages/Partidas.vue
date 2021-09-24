@@ -1,13 +1,11 @@
 <template>
   <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Partidas</h1>
-
     <div class="d-grid gap-2 col-6 mx-auto">
       <router-link :to="{name:'cadastropartidas'}">
         <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Nova Partida</button>
       </router-link>
     </div>
-
     <div>
       <table class="table px-2 mt-5">
         <thead>
@@ -31,7 +29,6 @@
           <td>VS</td>
           <td>GOLS</td>
           <td>{{ partida.time_visitante }}</td>
-
           <td class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(partida)">
               <router-link :to="{name: 'editarpartidas', params: {partida:partida.id}}">Editar</router-link>
@@ -44,13 +41,12 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </template>
 
 <script>
-
 import axios from "axios";
+import API from "@/services/API";
 
 let partidaNova = () => {
   return {
@@ -70,7 +66,7 @@ let golNovo = () => {
 
 export default {
 
-  components: { },
+  components: {},
   data() {
     return {
       partida: partidaNova(),
@@ -83,7 +79,7 @@ export default {
   methods: {
     salvar() {
       axios
-          .post("http://localhost:3000/partidas", {...this.partida})
+          .post(`${API}/partidas`, {...this.partida})
           .then((data) => {
             this.partidas.id = data.id
             this.partidas.push(this.partida);
@@ -99,7 +95,7 @@ export default {
     apagar(partida, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/partidas/${partida.id}`)
+          .delete(`${API}/partidas/${partida.id}`)
           .then(() => {
             this.partidas.splice(index, 1);
             this.carregando = false;
@@ -107,13 +103,13 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/partidas/').then(({data}) => {
+    axios.get(`${API}/partidas/`).then(({data}) => {
       this.partidas = data;
       this.carregando = false;
       this.partida = partidaNova(Math.max(...this.partidas.map(t => t.id)));
     });
 
-    axios.get('http://localhost:3000/gols').then(({data}) => {
+    axios.get(`${API}/gols`).then(({data}) => {
       this.gol = golNovo(this.$route.params.gols, Math.max(this.gols.map(g => g.id)));
       this.gols = data;
       this.carregando = false;

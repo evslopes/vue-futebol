@@ -32,6 +32,7 @@ import CampoText from "../components/CampoText";
 import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {ESTADOS} from "../Const";
+import API from "@/services/API";
 
 let timeNovo = () => {
   return {
@@ -58,7 +59,7 @@ export default {
   methods: {
     salvar() {
       axios
-          .post("http://localhost:3000/times", {...this.time})
+          .post(`${API}/times`, {...this.time})
           .then((data) => {
             this.times.id = (data.id) - 1
             this.times.push(this.time);
@@ -74,7 +75,7 @@ export default {
     apagar(time, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/times/${time.id}`)
+          .delete(`${API}/times/${time.id}`)
           .then(() => {
             this.times.splice(index, 1);
             this.carregando = false;
@@ -82,7 +83,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:3000/times").then(({data}) => {
+    axios.get(`${API}/times`).then(({data}) => {
       this.times = data;
       this.carregando = false;
       this.time = timeNovo(Math.max(...this.times.map(t => t.id)));

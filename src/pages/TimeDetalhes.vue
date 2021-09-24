@@ -1,7 +1,6 @@
 <template>
   <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5 display-1">Detalhes do Time</h1>
-
     <div>
       <table class="table px-2 mt-5">
         <thead>
@@ -17,9 +16,7 @@
         <tbody>
         <tr>
           <td>{{ time.id }}</td>
-          <td class="text-decoration-none">
-            {{ time.nome }}
-          </td>
+          <td class="text-decoration-none">{{ time.nome }}</td>
           <td>{{ time.estado }}</td>
           <td>{{ time.tecnico }}</td>
           <td>{{ time.torcida }}</td>
@@ -29,9 +26,7 @@
         </tr>
         </tbody>
       </table>
-
       <h2 class="fs-2 px-2 mt-5 display-2">Jogadores do Time</h2>
-
       <div>
         <table class="table px-2 mt-5">
           <thead>
@@ -41,7 +36,6 @@
           <th scope="col">Posição</th>
           <th scope="col">Time</th>
           <th scope="col">Gols</th>
-
           </thead>
           <tbody>
           <tr v-bind:key="jogador.id" v-for="(jogador) in jogadores">
@@ -55,7 +49,6 @@
           </tbody>
         </table>
       </div>
-
     </div>
   </div>
 </template>
@@ -63,6 +56,7 @@
 <script>
 import axios from "axios";
 import {ESTADOS} from "@/Const";
+import API from "@/services/API";
 
 export default {
   components: {},
@@ -98,17 +92,17 @@ export default {
 
   methods: {},
   mounted() {
-    axios.get(`http://localhost:3000/times/`).then(({data}) => {
+    axios.get(`${API}/times/`).then(({data}) => {
       this.times = data;
       this.carregando = false;
       this.time = this.times[Number(this.$route.params.time)];
     }),
 
 
-    axios.get(`http://localhost:3000/jogadores?time_id=${Number(this.$route.params.time + 1)}`).then(({data}) => {
-      this.jogadores = data;
-      this.carregando = false;
-    });
+        axios.get(`${API}/jogadores?time_id=${Number(this.$route.params.time + 1)}`).then(({data}) => {
+          this.jogadores = data;
+          this.carregando = false;
+        });
   },
 };
 </script>

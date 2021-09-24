@@ -5,21 +5,19 @@
       <Campo nome="Time" tipo="number" v-model="gol.time"></Campo>
       <Campo nome="Jogador" tipo="number" v-model="gol.jogador"></Campo>
       <Campo nome="Partida" tipo="number" v-model="gol.partida"></Campo>
-
       <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
         <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
           <router-link :to="{name:'gols'}">Salvar</router-link>
         </button>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import Campo from "../components/Campo";
-
 import axios from "axios";
+import API from "@/services/API";
 
 let golNovo = () => {
   return {
@@ -44,7 +42,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/gols/${Number(this.gol.id - 1)}`, {...this.gols})
+          .put(`${API}/gols/${Number(this.gol.id - 1)}`, {...this.gols})
           .then(() => {
             this.gols.push(index, 1);
             this.editando = false
@@ -57,7 +55,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/gols/').then(({data}) => {
+    axios.get(`${API}/gols/`).then(({data}) => {
       this.gols = data;
       this.carregando = false;
       this.gol = this.gols[Number(this.$route.params.gol)]

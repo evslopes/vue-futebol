@@ -1,13 +1,11 @@
 <template>
   <div class="container-fluid container-md">
     <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Jogadores</h1>
-
     <div class="d-grid gap-2 col-6 mx-auto">
       <router-link :to="{name:'cadastrojogadores'}">
         <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Novo Jogador</button>
       </router-link>
     </div>
-
     <div>
       <table class="table px-2 mt-5">
         <thead>
@@ -25,7 +23,7 @@
           <td scope="row">{{ jogador.id }}</td>
           <td scope="row">
             <router-link :to="{name: 'detalhesjogador', params: {jogador:jogador.id - 1}}">
-            {{ jogador.nome }}
+              {{ jogador.nome }}
             </router-link>
           </td>
           <td scope="row">{{ jogador.camisa }}</td>
@@ -45,13 +43,13 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import {POSICAO} from "@/Const";
+import API from "@/services/API";
 
 let jogadorNovo = () => {
   return {
@@ -83,7 +81,7 @@ export default {
     apagar(jogador, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/jogadores/${jogador.id}`)
+          .delete(`${API}/jogadores/${jogador.id}`)
           .then(() => {
             this.jogadores.splice(index, 1);
             this.carregando = false;
@@ -91,7 +89,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/jogadores/').then(({data}) => {
+    axios.get(`${API}/jogadores/`).then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
     });

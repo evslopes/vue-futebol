@@ -65,6 +65,11 @@
       "time_casa": "1",
       "time_visitante": "2",
       "id": 3
+    },
+    {
+      "time_casa": "1",
+      "time_visitante": "2",
+      "id": 4
     }
   ],
   "gols": [
@@ -171,10 +176,127 @@
       "partida": "7"
     },
     {
-      "id": 18,
-      "time": "1",
-      "jogador": "2",
-      "partida": "7"
+      "0": {
+        "id": 1,
+        "time": "3",
+        "jogador": "2",
+        "partida": "1"
+      },
+      "1": {
+        "id": 2,
+        "time": "1",
+        "jogador": "2",
+        "partida": "7"
+      },
+      "2": {
+        "id": 3,
+        "time": "1",
+        "jogador": "2",
+        "partida": "3"
+      },
+      "3": {
+        "id": 4,
+        "time": "1",
+        "jogador": "3",
+        "partida": "7"
+      },
+      "4": {
+        "id": 5,
+        "time": "1",
+        "jogador": "1",
+        "partida": "1"
+      },
+      "5": {
+        "id": 6,
+        "time": "1",
+        "jogador": "1",
+        "partida": "1"
+      },
+      "6": {
+        "id": 7,
+        "time": "2",
+        "jogador": "2",
+        "partida": "1"
+      },
+      "7": {
+        "id": 8,
+        "time": "2",
+        "jogador": "2",
+        "partida": "1"
+      },
+      "8": {
+        "id": 9,
+        "time": "2",
+        "jogador": "1",
+        "partida": "1"
+      },
+      "9": {
+        "id": 10,
+        "time": "2",
+        "jogador": "1",
+        "partida": "1"
+      },
+      "10": {
+        "id": 11,
+        "time": "2",
+        "jogador": "1",
+        "partida": "2"
+      },
+      "11": {
+        "id": 12,
+        "time": "2",
+        "jogador": "1",
+        "partida": "2"
+      },
+      "12": {
+        "id": 13,
+        "time": "2",
+        "jogador": "1",
+        "partida": "8"
+      },
+      "13": {
+        "id": 14,
+        "time": "1",
+        "jogador": "2",
+        "partida": "8"
+      },
+      "14": {
+        "id": 15,
+        "time": "2",
+        "jogador": "1",
+        "partida": "9"
+      },
+      "15": {
+        "id": 16,
+        "time": "2",
+        "jogador": "1",
+        "partida": "7"
+      },
+      "16": {
+        "id": 17,
+        "time": "2",
+        "jogador": "1",
+        "partida": "7"
+      },
+      "17": {
+        "id": 18,
+        "time": "1",
+        "jogador": "2",
+        "partida": "7"
+      },
+      "18": {
+        "id": 19,
+        "time": "3",
+        "jogador": "1",
+        "partida": "4"
+      },
+      "id": 18
+    },
+    {
+      "id": 19,
+      "time": "3",
+      "jogador": "1",
+      "partida": "5"
     }
   ]
 }

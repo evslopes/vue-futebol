@@ -16,7 +16,6 @@
           <td>{{ gol.time }}</td>
           <td>{{ gol.jogador }}</td>
           <td>{{ gol.partida }}</td>
-
           <td class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(gol)">
               <router-link :to="{name: 'editargols', params: {gol:gol.id - 1}}">Editar</router-link>
@@ -38,6 +37,7 @@
 
 <script>
 import axios from "axios";
+import API from "@/services/API";
 
 let golNovo = (time_id, jogador_id, partida_id, max) => {
   let max_id = max || 0
@@ -67,7 +67,7 @@ export default {
     apagar(gol, index) {
       this.carregando = true;
       axios
-          .delete(`http://localhost:3000/gols/${gol.id}`)
+          .delete(`${API}/gols/${gol.id}`)
           .then(() => {
             this.gols.splice(index, 1);
             this.carregando = false;
@@ -75,7 +75,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('http://localhost:3000/gols/').then(({data}) => {
+    axios.get(`${API}/gols/`).then(({data}) => {
       this.gols = data;
       this.carregando = false;
     });
