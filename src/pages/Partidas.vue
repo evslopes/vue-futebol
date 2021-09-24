@@ -3,7 +3,7 @@
     <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Partidas</h1>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-      <router-link to="cadastropartidas">
+      <router-link :to="{name:'cadastropartidas'}">
         <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Nova Partida</button>
       </router-link>
     </div>
@@ -23,25 +23,28 @@
         <tr v-bind:key="partida.id" v-for="(partida, index) in partidas">
           <td>
             <router-link :to="{name: 'detalhespartida', params: {partida:partida.id - 1}}">
-            {{ partida.id }}
+              {{ partida.id }}
             </router-link>
           </td>
           <td>{{ partida.time_casa }}</td>
-          <td> GOLs </td>
+          <td> GOLs</td>
           <td>VS</td>
           <td>GOLS</td>
           <td>{{ partida.time_visitante }}</td>
 
           <td class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(partida)">
-              <router-link :to="{name: 'editarpartidas', params: {partida:partida.id - 1}}">Editar</router-link>
+              <router-link :to="{name: 'editarpartidas', params: {partida:partida.id}}">Editar</router-link>
             </button>
-            <button class="btn btn-outline-danger btn-sm fs-12 px-1 mt-1 me-md-2" @click="apagar(partida, index)">Apagar</button>
+            <button class="btn btn-outline-danger btn-sm fs-12 px-1 mt-1 me-md-2" @click="apagar(partida, index)">
+              Apagar
+            </button>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </template>
 
@@ -49,26 +52,31 @@
 
 import axios from "axios";
 
-let partidasNovo = (max) => {
-  let max_id = max || 0
+let partidaNova = () => {
   return {
-    id: max_id + 1,
     time_casa: "",
     time_visitante: ""
   };
 };
 
+let golNovo = () => {
+  return {
+    id: "",
+    time: "",
+    jogador: "",
+    partida: ""
+  };
+};
+
 export default {
 
-  components: {},
+  components: { },
   data() {
     return {
-      partida: {
-        id: "",
-        time_casa: "",
-        time_visitante: ""
-      },
+      partida: partidaNova(),
       partidas: [],
+      gol: golNovo(),
+      gols: [],
     };
   },
 
@@ -79,7 +87,7 @@ export default {
           .then((data) => {
             this.partidas.id = data.id
             this.partidas.push(this.partida);
-            this.partida = partidasNovo(Math.max(...this.partidas.map(t => t.id)));
+            this.partida = partidaNova(Math.max(...this.partidas.map(t => t.id)));
             this.editando = false
             this.carregando = false;
           });
@@ -101,6 +109,14 @@ export default {
   mounted() {
     axios.get('http://localhost:3000/partidas/').then(({data}) => {
       this.partidas = data;
+      this.carregando = false;
+      this.partida = partidaNova(Math.max(...this.partidas.map(t => t.id)));
+    });
+
+    axios.get('http://localhost:3000/gols').then(({data}) => {
+      this.gol = golNovo(this.$route.params.gols, Math.max(this.gols.map(g => g.id)));
+      this.gols = data;
+      this.carregando = false;
     });
   },
 }

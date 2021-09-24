@@ -12,6 +12,7 @@
         <th scope="col">Torcida</th>
         <th scope="col">Ano</th>
         <th scope="col">Informações</th>
+        <th scope="col">Gols</th>
         </thead>
         <tbody>
         <tr>
@@ -24,6 +25,7 @@
           <td>{{ time.torcida }}</td>
           <td>{{ time.fundacao_ano }}</td>
           <td>{{ time.info }}</td>
+          <td>{{ time.qtGols }}</td>
         </tr>
         </tbody>
       </table>
@@ -38,6 +40,8 @@
           <th scope="col">Salário</th>
           <th scope="col">Posição</th>
           <th scope="col">Time</th>
+          <th scope="col">Gols</th>
+
           </thead>
           <tbody>
           <tr v-bind:key="jogador.id" v-for="(jogador) in jogadores">
@@ -46,6 +50,7 @@
             <td>{{ jogador.salario }}</td>
             <td>{{ jogador.posicao }}</td>
             <td>{{ jogador.time_id }}</td>
+            <td scope="row">{{ jogador.qtGols }}</td>
           </tr>
           </tbody>
         </table>
@@ -71,6 +76,7 @@ export default {
         torcida: "",
         fundacao_ano: "",
         info: "",
+        qtGols: ""
       },
       times: [],
 
@@ -98,7 +104,8 @@ export default {
       this.time = this.times[Number(this.$route.params.time)];
     }),
 
-    axios.get('http://localhost:3000/jogadores/').then(({data}) => {
+
+    axios.get(`http://localhost:3000/jogadores?time_id=${Number(this.$route.params.time + 1)}`).then(({data}) => {
       this.jogadores = data;
       this.carregando = false;
     });

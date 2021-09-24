@@ -1,69 +1,70 @@
 {
   "times": [
     {
-      "id": 1,
       "nome": "Flamengo",
       "estado": "RJ",
       "tecnico": "Renato Gaúcho",
       "torcida": "1234567890",
       "fundacao_ano": "1903",
-      "info": "Mengão!"
+      "info": "Mengão",
+      "qtGols": "23",
+      "id": 1
     },
     {
-      "id": 2,
-      "nome": "Cruzeiro",
-      "estado": "MG",
-      "tecnico": "Não sei ",
-      "torcida": "1234567890",
-      "fundacao_ano": "1903",
-      "info": "Raposa! "
-    },
-    {
-      "id": 3,
-      "nome": "Atlético Mineiro",
-      "estado": "MG",
+      "nome": "Fluminense",
+      "estado": "RJ",
       "tecnico": "Não sei",
-      "torcida": "1234567890",
-      "fundacao_ano": "1905",
-      "info": "Galo! "
+      "torcida": "123890",
+      "fundacao_ano": "1900",
+      "info": "Tricolor",
+      "qtGols": "20",
+      "id": 2
     }
   ],
   "jogadores": [
     {
-      "nome": "Pelé",
-      "salario": "1234567890",
-      "posicao": "ATACANTE",
-      "time_id": "1",
-      "camisa": "7",
-      "id": 1
-    },
-    {
       "nome": "Garrincha",
       "salario": "2147890",
-      "posicao": "PONTA ESQUERDA",
+      "posicao": "LATERAL DIREITO",
       "time_id": "2",
       "camisa": "10",
-      "id": 2
+      "id": 1,
+      "qtGols": "2"
     },
     {
-      "nome": "Romário",
-      "salario": "2345678900",
+      "nome": "Zico",
+      "salario": "2147890",
       "posicao": "ATACANTE",
       "time_id": "1",
+      "camisa": "11",
+      "id": 2,
+      "qtGols": "6"
+    },
+    {
+      "nome": "Romario",
+      "salario": "21346789",
+      "posicao": "ATACANTE",
+      "time_id": "1",
+      "qtGols": "20",
       "camisa": "11",
       "id": 3
     }
   ],
   "partidas": [
     {
-      "id": 1,
       "time_casa": "1",
-      "time_visitante": "2"
+      "time_visitante": "2",
+      "id": 1
     },
     {
-      "id": 2,
-      "time_casa": "3",
-      "time_visitante": "1"
+      "time_casa": "2",
+      "time_visitante": "1",
+      "id": 2
+    },
+    {
+      "time_casa": "1",
+      "time_visitante": "2",
+      "id": 3
     }
   ],
   "gols": [
@@ -77,13 +78,103 @@
       "id": 2,
       "time": "1",
       "jogador": "2",
-      "partida": "3"
+      "partida": "7"
     },
     {
       "id": 3,
-      "time": "3",
-      "jogador": "4",
+      "time": "1",
+      "jogador": "2",
+      "partida": "3"
+    },
+    {
+      "id": 4,
+      "time": "1",
+      "jogador": "3",
+      "partida": "7"
+    },
+    {
+      "id": 5,
+      "time": "1",
+      "jogador": "1",
       "partida": "1"
+    },
+    {
+      "id": 6,
+      "time": "1",
+      "jogador": "1",
+      "partida": "1"
+    },
+    {
+      "id": 7,
+      "time": "2",
+      "jogador": "2",
+      "partida": "1"
+    },
+    {
+      "id": 8,
+      "time": "2",
+      "jogador": "2",
+      "partida": "1"
+    },
+    {
+      "id": 9,
+      "time": "2",
+      "jogador": "1",
+      "partida": "1"
+    },
+    {
+      "id": 10,
+      "time": "2",
+      "jogador": "1",
+      "partida": "1"
+    },
+    {
+      "id": 11,
+      "time": "2",
+      "jogador": "1",
+      "partida": "2"
+    },
+    {
+      "id": 12,
+      "time": "2",
+      "jogador": "1",
+      "partida": "2"
+    },
+    {
+      "id": 13,
+      "time": "2",
+      "jogador": "1",
+      "partida": "8"
+    },
+    {
+      "id": 14,
+      "time": "1",
+      "jogador": "2",
+      "partida": "8"
+    },
+    {
+      "id": 15,
+      "time": "2",
+      "jogador": "1",
+      "partida": "9"
+    },
+    {
+      "id": 16,
+      "time": "2",
+      "jogador": "1",
+      "partida": "7"
+    },
+    {
+      "id": 17,
+      "time": "2",
+      "jogador": "1",
+      "partida": "7"
+    },
+    {
+      "id": 18,
+      "time": "1",
+      "jogador": "2",
+      "partida": "7"
     }
   ]
 }

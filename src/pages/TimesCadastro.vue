@@ -16,10 +16,11 @@
           tipo="texto"
           v-model="time.info"
       ></CampoText>
+      <Campo nome="Gols" tipo="number" v-model="time.qtGols"></Campo>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
       <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
-        <router-link to="/times">Salvar</router-link>
+        <router-link :to="{name:'times'}">Salvar</router-link>
       </button>
     </div>
   </div>
@@ -32,16 +33,15 @@ import CampoDropDown from "../components/CampoDropDown.vue";
 import axios from "axios";
 import {ESTADOS} from "../Const";
 
-let timeNovo = (max) => {
-  let max_id = max || 0
+let timeNovo = () => {
   return {
-    id: max_id + 1,
     nome: "",
     estado: "",
     tecnico: "",
     torcida: "",
     fundacao_ano: "",
     info: "",
+    qtGols: ""
   };
 };
 export default {
@@ -57,11 +57,10 @@ export default {
   },
   methods: {
     salvar() {
-      console.log(this.time)
       axios
           .post("http://localhost:3000/times", {...this.time})
           .then((data) => {
-            this.times.id = data.id
+            this.times.id = (data.id) - 1
             this.times.push(this.time);
             this.time = timeNovo(Math.max(...this.times.map(t => t.id)));
             this.editando = false

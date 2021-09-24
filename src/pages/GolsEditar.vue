@@ -8,7 +8,7 @@
 
       <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
         <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
-          <router-link to="Gols">Salvar</router-link>
+          <router-link :to="{name:'gols'}">Salvar</router-link>
         </button>
       </div>
     </div>

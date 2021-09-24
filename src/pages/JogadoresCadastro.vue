@@ -8,11 +8,12 @@
       <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
       <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
       <Campo nome="Time" tipo="number" v-model="jogador.time_id"></Campo>
+      <Campo nome="Gols" tipo="number" v-model="jogador.qtGols"></Campo>
     </div>
 
     <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
       <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
-        <router-link to="jogadores">Salvar</router-link>
+        <router-link :to="{name:'jogadores'}">Salvar</router-link>
       </button>
     </div>
   </div>
@@ -30,7 +31,8 @@ let jogadorNovo = () => {
     nome: "",
     salario: "",
     posicao: "",
-    time_id: ""
+    time_id: "",
+    qtGols: ""
   };
 };
 export default {

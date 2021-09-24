@@ -18,22 +18,17 @@
 <!--          </li>-->
           <li class="nav-item">
             <a class="nav-link active">
-              <router-link to="Times">Times</router-link>
+              <router-link :to="{name:'times'}">Times</router-link>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link active">
-              <router-link to="Jogadores">Jogadores</router-link>
+              <router-link :to="{name:'jogadores'}">Jogadores</router-link>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link active">
-              <router-link to="Partidas">Partidas</router-link>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">
-              <router-link to="Gols">Gols</router-link>
+              <router-link :to="{name:'partidas'}">Partidas</router-link>
             </a>
           </li>
           </ul>

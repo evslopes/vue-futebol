@@ -1,6 +1,6 @@
 <template>
   <div class="col-16 text-start">
-    <label  :for="nome" class="form-label mx-auto fs-5" >{{ nome }}</label>
+    <label  :for="nome" class="form-label mx-auto fs-10" >{{ nome }}</label>
     <input  :type="tipo"
            class="form-control mx-auto"
            :id="nome"

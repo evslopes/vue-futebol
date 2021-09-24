@@ -7,7 +7,7 @@
       </div>
     <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
       <button class="btn btn-outline-success btn-mdfs-6 px-1 mt-1 me-md-2" @click="salvar">
-        <router-link to="Partidas">Salvar</router-link>
+        <router-link :to="{name:'partidas'}">Salvar</router-link>
       </button>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/partidas/${Number(this.partida.id - 1)}`, {...this.partida})
+          .put(`http://localhost:3000/partidas/${Number(this.partida.id)}`, {...this.partida})
           .then(() => {
             this.partidas.push(index, 1);
             this.editando = false

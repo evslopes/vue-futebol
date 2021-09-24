@@ -9,17 +9,14 @@ const ESTADOS = [
 ]
 
 const POSICAO = [
-    "ATACANTE",
     "GOLEIRO",
+    "ZAGUEIRO",
     "LATERAL DIREITO",
     "LATERAL ESQUERDO",
-    "MEIA ARMADOR",
-    "PONTA DIREITA",
-    "PONTA ESQUERDA",
-    "QUARTO ZAGUEIRO",
-    "SEGUNDO VOLANTE",
     "VOLANTE",
-    "ZAGUEIRO CENTRAL"
+    "MEIO DE CAMPO",
+    "CENTRO AVANTE",
+    "ATACANTE"
 ]
 
 export {ESTADOS}

@@ -7,10 +7,11 @@
       <Campo nome="Salário" tipo="number" v-model="jogador.salario"></Campo>
       <CampoDropDown nome="Posição" v-model="jogador.posicao" :itens="posicao"></CampoDropDown>
       <Campo nome="Time" tipo="number" v-model="jogador.time_id"></Campo>
+      <Campo nome="Gols" tipo="number" v-model="jogador.qtGols"></Campo>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto d-grid gap-2">
       <button class="btn btn-outline-success btn-mdfs-12 px-1 mt-1 me-md-2" @click="salvar">
-        <router-link to="/jogadores">Salvar</router-link>
+        <router-link :to="{name:'jogadores'}">Salvar</router-link>
       </button>
     </div>
   </div>
@@ -29,7 +30,8 @@ let jogadorNovo = () => {
     camisa: "",
     salario: "",
     posicao: "",
-    time_id: ""
+    time_id: "",
+    qtGols: ""
   };
 };
 
@@ -48,7 +50,7 @@ export default {
   methods: {
     salvar(index) {
       axios
-          .put(`http://localhost:3000/jogadores/${Number(this.jogador.id -1)}`, {...this.jogador})
+          .put(`http://localhost:3000/jogadores/${Number(this.jogador.id)}`, {...this.jogador})
           .then(() => {
             this.jogadores.push(index, 1);
             this.editando = false

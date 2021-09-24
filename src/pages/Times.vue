@@ -18,6 +18,7 @@
         <th scope="col">Torcida</th>
         <th scope="col">Ano</th>
         <th scope="col">Informações</th>
+        <th scope="col">Gols</th>
         <th scope="col">Editar ou apagar</th>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
           <td>{{ time.torcida }}</td>
           <td>{{ time.fundacao_ano }}</td>
           <td>{{ time.info }}</td>
+          <td>{{ time.qtGols }}</td>
           <td class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(time)">
               <router-link :to="{name: 'editartimes', params: {time:time.id - 1}}">
@@ -46,6 +48,7 @@
       </table>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -56,13 +59,13 @@ export default {
   data() {
     return {
       time: {
-        id: "",
         nome: "",
         estado: "",
         tecnico: "",
         torcida: "",
         fundacao_ano: "",
         info: "",
+        qtGols: ""
       },
       times: [],
     };

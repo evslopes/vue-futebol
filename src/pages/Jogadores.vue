@@ -3,7 +3,7 @@
     <h1 class="fs-1 px-2 mt-5 display-1">Tabela de Jogadores</h1>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-      <router-link to="/cadastrojogadores">
+      <router-link :to="{name:'cadastrojogadores'}">
         <button class="btn btn-primary fs-8 px-1 mt-1 btn-sm">Novo Jogador</button>
       </router-link>
     </div>
@@ -17,6 +17,7 @@
         <th scope="col">Salário</th>
         <th scope="col">Posição</th>
         <th scope="col">Time</th>
+        <th scope="col">Gols</th>
         <th scope="col">Editar ou Apagar</th>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
           <td scope="row">{{ jogador.salario }}</td>
           <td scope="row">{{ jogador.posicao }}</td>
           <td scope="row">{{ jogador.time_id }}</td>
+          <td scope="row">{{ jogador.qtGols }}</td>
           <td scope="row" class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button class="btn btn-outline-warning btn-sm fs-12 px-1 mt-1 me-md-2" @click="editar(jogador)">
               <router-link :to="{name: 'editarjogadores', params: {jogador:jogador.id - 1}}">Editar</router-link>
@@ -57,7 +59,8 @@ let jogadorNovo = () => {
     nome: "",
     salario: "",
     posicao: "",
-    time_id: ""
+    time_id: "",
+    qtGols: ""
   };
 };
 export default {
